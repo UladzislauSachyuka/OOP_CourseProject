@@ -86,14 +86,14 @@
             client_registr_label.TabIndex = 16;
             client_registr_label.Text = "Регистрация\r\nклиента";
             client_registr_label.TextAlign = ContentAlignment.MiddleCenter;
-            client_registr_label.Click += employee_registr_label_MouseHover;
+            client_registr_label.Click += client_registr_label_Click;
             client_registr_label.MouseLeave += client_registr_label_MouseLeave;
             client_registr_label.MouseHover += client_registr_label_MouseHover;
             // 
             // panel3
             // 
             panel3.BackColor = Color.WhiteSmoke;
-            panel3.Location = new Point(137, 228);
+            panel3.Location = new Point(144, 228);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(286, 1);
@@ -103,7 +103,7 @@
             // 
             panel5.BackColor = Color.FromArgb(78, 184, 206);
             panel5.Controls.Add(panel2);
-            panel5.Location = new Point(137, 306);
+            panel5.Location = new Point(144, 306);
             panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
             panel5.Size = new Size(286, 1);
@@ -145,7 +145,7 @@
             LoginButton.FlatStyle = FlatStyle.Flat;
             LoginButton.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             LoginButton.ForeColor = Color.FromArgb(34, 36, 49);
-            LoginButton.Location = new Point(198, 408);
+            LoginButton.Location = new Point(208, 408);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(158, 39);
             LoginButton.TabIndex = 7;
@@ -159,7 +159,7 @@
             passwordBox.BorderStyle = BorderStyle.None;
             passwordBox.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             passwordBox.ForeColor = Color.WhiteSmoke;
-            passwordBox.Location = new Point(137, 274);
+            passwordBox.Location = new Point(144, 274);
             passwordBox.MaxLength = 15;
             passwordBox.Name = "passwordBox";
             passwordBox.Size = new Size(287, 22);
@@ -174,7 +174,7 @@
             loginBox.BorderStyle = BorderStyle.None;
             loginBox.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             loginBox.ForeColor = Color.WhiteSmoke;
-            loginBox.Location = new Point(139, 194);
+            loginBox.Location = new Point(143, 194);
             loginBox.MaxLength = 15;
             loginBox.Name = "loginBox";
             loginBox.Size = new Size(288, 22);
@@ -189,7 +189,7 @@
             label.BackColor = Color.Transparent;
             label.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label.ForeColor = Color.FromArgb(78, 184, 206);
-            label.Location = new Point(190, 57);
+            label.Location = new Point(200, 57);
             label.Name = "label";
             label.Size = new Size(174, 32);
             label.TabIndex = 2;
