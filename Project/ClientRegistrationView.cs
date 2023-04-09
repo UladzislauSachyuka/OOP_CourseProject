@@ -33,6 +33,43 @@ namespace Project
                 message_label.Visible = true;
                 return;
             }
+
+            DateTime date;
+            if (!DateTime.TryParse(date_label.Text, out date) || date.Year > 2023 || date.Year < 1920)
+            {
+                message_label.Text = "Некорректная дата рождения";
+                message_label.Visible = true;
+                return;
+            }
+
+            if (series_label.TextLength < 2)
+            {
+                message_label.Text = "Серия паспорта должна содержать 2 буквы";
+                message_label.Visible = true;
+                return;
+            }
+
+            if (passport_label.TextLength < 7)
+            {
+                message_label.Text = "Номер паспорта должен содержать 7 цифр";
+                message_label.Visible = true;
+                return;
+            }
+
+            if (password_client_label.TextLength < 4)
+            {
+                message_label.Text = "Пароль должен содержать от 4 до 15 символов";
+                message_label.Visible = true;
+                return;
+            }
+
+            if (password_client_label != confirm_password_label) 
+            {
+                message_label.Text = "Пароли не совпадают";
+                message_label.Visible = true;
+                return;
+            }
+
         }
 
         private void authorization_label_Click(object sender, EventArgs e)
@@ -56,6 +93,14 @@ namespace Project
         private void authorization_label_MouseLeave(object sender, EventArgs e)
         {
             authorization_label.ForeColor = Color.FromArgb(78, 184, 206);
+        }
+
+        private void passport_label_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) 
+            {
+                e.Handled = true;
+            }
         }
     }
 }

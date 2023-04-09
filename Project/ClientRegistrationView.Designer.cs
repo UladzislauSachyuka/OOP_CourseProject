@@ -294,11 +294,13 @@
             passport_label.Name = "passport_label";
             passport_label.Size = new Size(169, 27);
             passport_label.TabIndex = 54;
+            passport_label.KeyPress += passport_label_KeyPress;
             // 
             // series_label
             // 
             series_label.BackColor = Color.FromArgb(34, 36, 49);
             series_label.BorderStyle = BorderStyle.None;
+            series_label.CharacterCasing = CharacterCasing.Upper;
             series_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             series_label.ForeColor = Color.FromArgb(78, 184, 206);
             series_label.Location = new Point(339, 305);
