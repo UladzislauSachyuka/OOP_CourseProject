@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            panel1 = new Panel();
+            telephone_label = new TextBox();
+            label1 = new Label();
             message_label = new Label();
             panel14 = new Panel();
             panel13 = new Panel();
@@ -72,6 +75,9 @@
             // 
             panel2.AutoSize = true;
             panel2.BackColor = Color.FromArgb(34, 36, 49);
+            panel2.Controls.Add(panel1);
+            panel2.Controls.Add(telephone_label);
+            panel2.Controls.Add(label1);
             panel2.Controls.Add(message_label);
             panel2.Controls.Add(panel14);
             panel2.Controls.Add(panel13);
@@ -102,8 +108,42 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(-5, -24);
             panel2.Name = "panel2";
-            panel2.Size = new Size(642, 684);
+            panel2.Size = new Size(633, 703);
             panel2.TabIndex = 21;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(340, 425);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(229, 1);
+            panel1.TabIndex = 66;
+            // 
+            // telephone_label
+            // 
+            telephone_label.BackColor = Color.FromArgb(34, 36, 49);
+            telephone_label.BorderStyle = BorderStyle.None;
+            telephone_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            telephone_label.ForeColor = Color.FromArgb(78, 184, 206);
+            telephone_label.Location = new Point(340, 397);
+            telephone_label.MaxLength = 15;
+            telephone_label.Name = "telephone_label";
+            telephone_label.Size = new Size(169, 27);
+            telephone_label.TabIndex = 65;
+            telephone_label.KeyPress += telephone_label_KeyPress;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(78, 184, 206);
+            label1.Location = new Point(94, 403);
+            label1.Name = "label1";
+            label1.Size = new Size(90, 23);
+            label1.TabIndex = 64;
+            label1.Text = "Телефон";
             // 
             // message_label
             // 
@@ -130,7 +170,7 @@
             // panel13
             // 
             panel13.BackColor = Color.White;
-            panel13.Location = new Point(339, 424);
+            panel13.Location = new Point(339, 466);
             panel13.Margin = new Padding(3, 4, 3, 4);
             panel13.Name = "panel13";
             panel13.Size = new Size(229, 1);
@@ -140,7 +180,7 @@
             // 
             panel11.BackColor = Color.White;
             panel11.Controls.Add(panel12);
-            panel11.Location = new Point(339, 468);
+            panel11.Location = new Point(339, 510);
             panel11.Margin = new Padding(3, 4, 3, 4);
             panel11.Name = "panel11";
             panel11.Size = new Size(229, 1);
@@ -250,7 +290,7 @@
             authorization_label.Cursor = Cursors.Hand;
             authorization_label.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             authorization_label.ForeColor = Color.FromArgb(78, 184, 206);
-            authorization_label.Location = new Point(234, 602);
+            authorization_label.Location = new Point(234, 633);
             authorization_label.Name = "authorization_label";
             authorization_label.Size = new Size(174, 32);
             authorization_label.TabIndex = 57;
@@ -265,7 +305,7 @@
             confirm_password_label.BorderStyle = BorderStyle.None;
             confirm_password_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             confirm_password_label.ForeColor = Color.FromArgb(78, 184, 206);
-            confirm_password_label.Location = new Point(339, 440);
+            confirm_password_label.Location = new Point(339, 482);
             confirm_password_label.MaxLength = 15;
             confirm_password_label.Name = "confirm_password_label";
             confirm_password_label.Size = new Size(169, 27);
@@ -277,7 +317,7 @@
             password_client_label.BorderStyle = BorderStyle.None;
             password_client_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             password_client_label.ForeColor = Color.FromArgb(78, 184, 206);
-            password_client_label.Location = new Point(339, 396);
+            password_client_label.Location = new Point(339, 438);
             password_client_label.MaxLength = 15;
             password_client_label.Name = "password_client_label";
             password_client_label.Size = new Size(169, 27);
@@ -332,6 +372,7 @@
             patronymic_label.Name = "patronymic_label";
             patronymic_label.Size = new Size(169, 27);
             patronymic_label.TabIndex = 51;
+            patronymic_label.TextChanged += patronymic_label_TextChanged;
             // 
             // name_label
             // 
@@ -344,6 +385,7 @@
             name_label.Name = "name_label";
             name_label.Size = new Size(169, 27);
             name_label.TabIndex = 50;
+            name_label.TextChanged += name_label_TextChanged;
             // 
             // surname_label
             // 
@@ -366,7 +408,7 @@
             Client_RegisterButton.FlatStyle = FlatStyle.Flat;
             Client_RegisterButton.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             Client_RegisterButton.ForeColor = Color.FromArgb(34, 36, 49);
-            Client_RegisterButton.Location = new Point(176, 524);
+            Client_RegisterButton.Location = new Point(176, 555);
             Client_RegisterButton.Name = "Client_RegisterButton";
             Client_RegisterButton.Size = new Size(290, 57);
             Client_RegisterButton.TabIndex = 48;
@@ -381,7 +423,7 @@
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.FromArgb(78, 184, 206);
-            label9.Location = new Point(94, 448);
+            label9.Location = new Point(94, 490);
             label9.Name = "label9";
             label9.Size = new Size(201, 23);
             label9.TabIndex = 47;
@@ -393,7 +435,7 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(78, 184, 206);
-            label8.Location = new Point(94, 404);
+            label8.Location = new Point(94, 446);
             label8.Name = "label8";
             label8.Size = new Size(78, 23);
             label8.TabIndex = 46;
@@ -475,7 +517,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(623, 651);
+            ClientSize = new Size(623, 680);
             Controls.Add(panel2);
             Name = "ClientRegistrationView";
             StartPosition = FormStartPosition.CenterScreen;
@@ -525,5 +567,8 @@
         private Label label3;
         private Label label2;
         private Label message_label;
+        private Panel panel1;
+        private TextBox telephone_label;
+        private Label label1;
     }
 }

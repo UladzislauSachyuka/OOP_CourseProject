@@ -56,6 +56,13 @@ namespace Project
                 return;
             }
 
+            if (telephone_label.TextLength != 12)
+            {
+                message_label.Text = "Телефон должен содеражать 12 цифр";
+                message_label.Visible = true;
+                return;
+            }
+
             if (password_client_label.TextLength < 4)
             {
                 message_label.Text = "Пароль должен содержать от 4 до 15 символов";
@@ -63,7 +70,7 @@ namespace Project
                 return;
             }
 
-            if (password_client_label != confirm_password_label) 
+            if (password_client_label != confirm_password_label)
             {
                 message_label.Text = "Пароли не совпадают";
                 message_label.Visible = true;
@@ -85,6 +92,18 @@ namespace Project
             surname_label.Select(surname_label.Text.Length, 0);
         }
 
+        private void name_label_TextChanged(object sender, EventArgs e)
+        {
+            name_label.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(name_label.Text);
+            name_label.Select(name_label.Text.Length, 0);
+        }
+
+        private void patronymic_label_TextChanged(object sender, EventArgs e)
+        {
+            patronymic_label.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(patronymic_label.Text);
+            patronymic_label.Select(patronymic_label.Text.Length, 0);
+        }
+
         private void authorization_label_MouseHover(object sender, EventArgs e)
         {
             authorization_label.ForeColor = Color.FromArgb(78, 144, 206);
@@ -97,7 +116,15 @@ namespace Project
 
         private void passport_label_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void telephone_label_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
