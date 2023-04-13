@@ -21,7 +21,7 @@ namespace Project
         {
             if (surname_label.Text is "" || name_label.Text is "" || patronymic_label.Text is ""
                 || date_label.Text is "" || series_label.Text is "" || passport_label.Text is ""
-                || password_client_label.Text is "" || confirm_password_label.Text is "")
+                || telephone_label.Text is "" || login_label.Text is "" || password_client_label.Text is "" || confirm_password_label.Text is "")
             {
                 message_label.Text = "Все поля обязательны для заполнения";
                 message_label.Visible = true;
@@ -129,5 +129,6 @@ namespace Project
                 e.Handled = true;
             }
         }
+
     }
 }

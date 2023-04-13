@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            panel15 = new Panel();
+            login_label = new TextBox();
+            label10 = new Label();
             panel1 = new Panel();
             telephone_label = new TextBox();
             label1 = new Label();
@@ -75,6 +78,9 @@
             // 
             panel2.AutoSize = true;
             panel2.BackColor = Color.FromArgb(34, 36, 49);
+            panel2.Controls.Add(panel15);
+            panel2.Controls.Add(login_label);
+            panel2.Controls.Add(label10);
             panel2.Controls.Add(panel1);
             panel2.Controls.Add(telephone_label);
             panel2.Controls.Add(label1);
@@ -108,13 +114,46 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(-5, -24);
             panel2.Name = "panel2";
-            panel2.Size = new Size(633, 703);
+            panel2.Size = new Size(633, 749);
             panel2.TabIndex = 21;
+            // 
+            // panel15
+            // 
+            panel15.BackColor = Color.White;
+            panel15.Location = new Point(340, 453);
+            panel15.Margin = new Padding(3, 4, 3, 4);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(229, 1);
+            panel15.TabIndex = 69;
+            // 
+            // login_label
+            // 
+            login_label.BackColor = Color.FromArgb(34, 36, 49);
+            login_label.BorderStyle = BorderStyle.None;
+            login_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            login_label.ForeColor = Color.FromArgb(78, 184, 206);
+            login_label.Location = new Point(340, 419);
+            login_label.MaxLength = 15;
+            login_label.Name = "login_label";
+            login_label.Size = new Size(169, 27);
+            login_label.TabIndex = 68;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.FromArgb(78, 184, 206);
+            label10.Location = new Point(94, 434);
+            label10.Name = "label10";
+            label10.Size = new Size(61, 23);
+            label10.TabIndex = 67;
+            label10.Text = "Логин";
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Location = new Point(340, 425);
+            panel1.Location = new Point(340, 411);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(229, 1);
@@ -126,8 +165,8 @@
             telephone_label.BorderStyle = BorderStyle.None;
             telephone_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             telephone_label.ForeColor = Color.FromArgb(78, 184, 206);
-            telephone_label.Location = new Point(340, 397);
-            telephone_label.MaxLength = 15;
+            telephone_label.Location = new Point(340, 377);
+            telephone_label.MaxLength = 12;
             telephone_label.Name = "telephone_label";
             telephone_label.Size = new Size(169, 27);
             telephone_label.TabIndex = 65;
@@ -139,7 +178,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(78, 184, 206);
-            label1.Location = new Point(94, 403);
+            label1.Location = new Point(94, 391);
             label1.Name = "label1";
             label1.Size = new Size(90, 23);
             label1.TabIndex = 64;
@@ -161,7 +200,7 @@
             // panel14
             // 
             panel14.BackColor = Color.White;
-            panel14.Location = new Point(339, 380);
+            panel14.Location = new Point(339, 369);
             panel14.Margin = new Padding(3, 4, 3, 4);
             panel14.Name = "panel14";
             panel14.Size = new Size(229, 1);
@@ -170,7 +209,7 @@
             // panel13
             // 
             panel13.BackColor = Color.White;
-            panel13.Location = new Point(339, 466);
+            panel13.Location = new Point(339, 495);
             panel13.Margin = new Padding(3, 4, 3, 4);
             panel13.Name = "panel13";
             panel13.Size = new Size(229, 1);
@@ -180,7 +219,7 @@
             // 
             panel11.BackColor = Color.White;
             panel11.Controls.Add(panel12);
-            panel11.Location = new Point(339, 510);
+            panel11.Location = new Point(339, 537);
             panel11.Margin = new Padding(3, 4, 3, 4);
             panel11.Name = "panel11";
             panel11.Size = new Size(229, 1);
@@ -198,7 +237,7 @@
             // panel10
             // 
             panel10.BackColor = Color.White;
-            panel10.Location = new Point(339, 292);
+            panel10.Location = new Point(339, 285);
             panel10.Margin = new Padding(3, 4, 3, 4);
             panel10.Name = "panel10";
             panel10.Size = new Size(229, 1);
@@ -208,7 +247,7 @@
             // 
             panel8.BackColor = Color.White;
             panel8.Controls.Add(panel9);
-            panel8.Location = new Point(339, 336);
+            panel8.Location = new Point(339, 327);
             panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
             panel8.Size = new Size(229, 1);
@@ -226,7 +265,7 @@
             // panel7
             // 
             panel7.BackColor = Color.White;
-            panel7.Location = new Point(339, 160);
+            panel7.Location = new Point(339, 159);
             panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
             panel7.Size = new Size(229, 1);
@@ -236,7 +275,7 @@
             // 
             panel4.BackColor = Color.White;
             panel4.Controls.Add(panel5);
-            panel4.Location = new Point(339, 248);
+            panel4.Location = new Point(339, 243);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
             panel4.Size = new Size(229, 1);
@@ -264,7 +303,7 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Location = new Point(339, 204);
+            panel3.Location = new Point(339, 201);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(229, 1);
@@ -290,7 +329,7 @@
             authorization_label.Cursor = Cursors.Hand;
             authorization_label.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             authorization_label.ForeColor = Color.FromArgb(78, 184, 206);
-            authorization_label.Location = new Point(234, 633);
+            authorization_label.Location = new Point(234, 677);
             authorization_label.Name = "authorization_label";
             authorization_label.Size = new Size(174, 32);
             authorization_label.TabIndex = 57;
@@ -305,7 +344,7 @@
             confirm_password_label.BorderStyle = BorderStyle.None;
             confirm_password_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             confirm_password_label.ForeColor = Color.FromArgb(78, 184, 206);
-            confirm_password_label.Location = new Point(339, 482);
+            confirm_password_label.Location = new Point(339, 503);
             confirm_password_label.MaxLength = 15;
             confirm_password_label.Name = "confirm_password_label";
             confirm_password_label.Size = new Size(169, 27);
@@ -317,7 +356,7 @@
             password_client_label.BorderStyle = BorderStyle.None;
             password_client_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             password_client_label.ForeColor = Color.FromArgb(78, 184, 206);
-            password_client_label.Location = new Point(339, 438);
+            password_client_label.Location = new Point(339, 461);
             password_client_label.MaxLength = 15;
             password_client_label.Name = "password_client_label";
             password_client_label.Size = new Size(169, 27);
@@ -329,7 +368,7 @@
             passport_label.BorderStyle = BorderStyle.None;
             passport_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             passport_label.ForeColor = Color.FromArgb(78, 184, 206);
-            passport_label.Location = new Point(339, 350);
+            passport_label.Location = new Point(339, 335);
             passport_label.MaxLength = 7;
             passport_label.Name = "passport_label";
             passport_label.Size = new Size(169, 27);
@@ -343,7 +382,7 @@
             series_label.CharacterCasing = CharacterCasing.Upper;
             series_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             series_label.ForeColor = Color.FromArgb(78, 184, 206);
-            series_label.Location = new Point(339, 305);
+            series_label.Location = new Point(339, 293);
             series_label.MaxLength = 2;
             series_label.Name = "series_label";
             series_label.Size = new Size(169, 27);
@@ -355,7 +394,7 @@
             date_label.BorderStyle = BorderStyle.None;
             date_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             date_label.ForeColor = Color.FromArgb(78, 184, 206);
-            date_label.Location = new Point(339, 260);
+            date_label.Location = new Point(339, 251);
             date_label.MaxLength = 10;
             date_label.Name = "date_label";
             date_label.Size = new Size(169, 27);
@@ -367,7 +406,7 @@
             patronymic_label.BorderStyle = BorderStyle.None;
             patronymic_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             patronymic_label.ForeColor = Color.FromArgb(78, 184, 206);
-            patronymic_label.Location = new Point(339, 214);
+            patronymic_label.Location = new Point(339, 209);
             patronymic_label.MaxLength = 20;
             patronymic_label.Name = "patronymic_label";
             patronymic_label.Size = new Size(169, 27);
@@ -380,7 +419,7 @@
             name_label.BorderStyle = BorderStyle.None;
             name_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             name_label.ForeColor = Color.FromArgb(78, 184, 206);
-            name_label.Location = new Point(339, 170);
+            name_label.Location = new Point(339, 167);
             name_label.MaxLength = 20;
             name_label.Name = "name_label";
             name_label.Size = new Size(169, 27);
@@ -408,7 +447,7 @@
             Client_RegisterButton.FlatStyle = FlatStyle.Flat;
             Client_RegisterButton.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             Client_RegisterButton.ForeColor = Color.FromArgb(34, 36, 49);
-            Client_RegisterButton.Location = new Point(176, 555);
+            Client_RegisterButton.Location = new Point(176, 599);
             Client_RegisterButton.Name = "Client_RegisterButton";
             Client_RegisterButton.Size = new Size(290, 57);
             Client_RegisterButton.TabIndex = 48;
@@ -423,7 +462,7 @@
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.FromArgb(78, 184, 206);
-            label9.Location = new Point(94, 490);
+            label9.Location = new Point(94, 520);
             label9.Name = "label9";
             label9.Size = new Size(201, 23);
             label9.TabIndex = 47;
@@ -435,7 +474,7 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(78, 184, 206);
-            label8.Location = new Point(94, 446);
+            label8.Location = new Point(94, 477);
             label8.Name = "label8";
             label8.Size = new Size(78, 23);
             label8.TabIndex = 46;
@@ -447,7 +486,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(78, 184, 206);
-            label7.Location = new Point(94, 358);
+            label7.Location = new Point(94, 348);
             label7.Name = "label7";
             label7.Size = new Size(158, 23);
             label7.TabIndex = 45;
@@ -459,7 +498,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(78, 184, 206);
-            label6.Location = new Point(94, 313);
+            label6.Location = new Point(94, 305);
             label6.Name = "label6";
             label6.Size = new Size(67, 23);
             label6.TabIndex = 44;
@@ -471,7 +510,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(78, 184, 206);
-            label5.Location = new Point(94, 269);
+            label5.Location = new Point(94, 262);
             label5.Name = "label5";
             label5.Size = new Size(150, 23);
             label5.TabIndex = 43;
@@ -483,7 +522,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(78, 184, 206);
-            label4.Location = new Point(94, 224);
+            label4.Location = new Point(94, 219);
             label4.Name = "label4";
             label4.Size = new Size(97, 23);
             label4.TabIndex = 42;
@@ -495,7 +534,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(78, 184, 206);
-            label3.Location = new Point(94, 178);
+            label3.Location = new Point(94, 176);
             label3.Name = "label3";
             label3.Size = new Size(48, 23);
             label3.TabIndex = 41;
@@ -517,7 +556,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(623, 680);
+            ClientSize = new Size(623, 722);
             Controls.Add(panel2);
             Name = "ClientRegistrationView";
             StartPosition = FormStartPosition.CenterScreen;
@@ -570,5 +609,8 @@
         private Panel panel1;
         private TextBox telephone_label;
         private Label label1;
+        private Panel panel15;
+        private TextBox login_label;
+        private Label label10;
     }
 }

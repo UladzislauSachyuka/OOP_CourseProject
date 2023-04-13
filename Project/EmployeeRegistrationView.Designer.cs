@@ -287,7 +287,7 @@
             address_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             address_label.ForeColor = Color.FromArgb(78, 184, 206);
             address_label.Location = new Point(330, 329);
-            address_label.MaxLength = 7;
+            address_label.MaxLength = 15;
             address_label.Name = "address_label";
             address_label.Size = new Size(169, 27);
             address_label.TabIndex = 54;
@@ -300,7 +300,7 @@
             telephone_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             telephone_label.ForeColor = Color.FromArgb(78, 184, 206);
             telephone_label.Location = new Point(330, 284);
-            telephone_label.MaxLength = 2;
+            telephone_label.MaxLength = 12;
             telephone_label.Name = "telephone_label";
             telephone_label.Size = new Size(169, 27);
             telephone_label.TabIndex = 53;
