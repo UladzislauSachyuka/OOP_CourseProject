@@ -184,7 +184,9 @@
             ClientSize = new Size(805, 543);
             Controls.Add(panel1);
             Name = "EmployeeAccountView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeAccountView";
+            FormClosed += EmployeeAccountView_FormClosed;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

@@ -20,8 +20,7 @@ namespace Project
         private void Client_RegisterButton_Click(object sender, EventArgs e)
         {
             if (surname_label.Text is "" || name_label.Text is "" || patronymic_label.Text is ""
-                || date_label.Text is "" || series_label.Text is "" || passport_label.Text is ""
-                || telephone_label.Text is "" || login_label.Text is "" || password_client_label.Text is "" || confirm_password_label.Text is "")
+                || date_label.Text is "" || telephone_label.Text is "" || login_label.Text is "" || password_label.Text is "" || confirm_password_label.Text is "")
             {
                 message_label.Text = "Все поля обязательны для заполнения";
                 message_label.Visible = true;
@@ -42,20 +41,6 @@ namespace Project
                 return;
             }
 
-            if (series_label.TextLength < 2)
-            {
-                message_label.Text = "Серия паспорта должна содержать 2 буквы";
-                message_label.Visible = true;
-                return;
-            }
-
-            if (passport_label.TextLength < 7)
-            {
-                message_label.Text = "Номер паспорта должен содержать 7 цифр";
-                message_label.Visible = true;
-                return;
-            }
-
             if (telephone_label.TextLength != 12)
             {
                 message_label.Text = "Телефон должен содеражать 12 цифр";
@@ -63,20 +48,26 @@ namespace Project
                 return;
             }
 
-            if (password_client_label.TextLength < 4)
+            if (login_label.TextLength < 4)
+            {
+                message_label.Text = "Логин должен содержать от 4 до 15 символов";
+                message_label.Visible = true;
+                return;
+            }
+
+            if (password_label.TextLength < 4)
             {
                 message_label.Text = "Пароль должен содержать от 4 до 15 символов";
                 message_label.Visible = true;
                 return;
             }
 
-            if (password_client_label != confirm_password_label)
+            if (password_label != confirm_password_label)
             {
                 message_label.Text = "Пароли не совпадают";
                 message_label.Visible = true;
                 return;
             }
-
         }
 
         private void authorization_label_Click(object sender, EventArgs e)
@@ -130,5 +121,9 @@ namespace Project
             }
         }
 
+        private void ClientRegistrationView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

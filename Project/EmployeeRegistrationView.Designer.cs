@@ -45,8 +45,8 @@
             label = new Label();
             authorization_label = new Label();
             confirm_password_label = new TextBox();
-            password_client_label = new TextBox();
-            address_label = new TextBox();
+            password_label = new TextBox();
+            login_label = new TextBox();
             telephone_label = new TextBox();
             date_label = new TextBox();
             patronymic_label = new TextBox();
@@ -84,8 +84,8 @@
             panel2.Controls.Add(label);
             panel2.Controls.Add(authorization_label);
             panel2.Controls.Add(confirm_password_label);
-            panel2.Controls.Add(password_client_label);
-            panel2.Controls.Add(address_label);
+            panel2.Controls.Add(password_label);
+            panel2.Controls.Add(login_label);
             panel2.Controls.Add(telephone_label);
             panel2.Controls.Add(date_label);
             panel2.Controls.Add(patronymic_label);
@@ -255,6 +255,9 @@
             authorization_label.Size = new Size(174, 32);
             authorization_label.TabIndex = 57;
             authorization_label.Text = "Авторизация";
+            authorization_label.Click += authorization_label_Click;
+            authorization_label.MouseLeave += authorization_label_MouseLeave;
+            authorization_label.MouseHover += authorization_label_MouseHover;
             // 
             // confirm_password_label
             // 
@@ -268,29 +271,29 @@
             confirm_password_label.Size = new Size(169, 27);
             confirm_password_label.TabIndex = 56;
             // 
-            // password_client_label
+            // password_label
             // 
-            password_client_label.BackColor = Color.FromArgb(34, 36, 49);
-            password_client_label.BorderStyle = BorderStyle.None;
-            password_client_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            password_client_label.ForeColor = Color.FromArgb(78, 184, 206);
-            password_client_label.Location = new Point(330, 375);
-            password_client_label.MaxLength = 15;
-            password_client_label.Name = "password_client_label";
-            password_client_label.Size = new Size(169, 27);
-            password_client_label.TabIndex = 55;
+            password_label.BackColor = Color.FromArgb(34, 36, 49);
+            password_label.BorderStyle = BorderStyle.None;
+            password_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            password_label.ForeColor = Color.FromArgb(78, 184, 206);
+            password_label.Location = new Point(330, 375);
+            password_label.MaxLength = 15;
+            password_label.Name = "password_label";
+            password_label.Size = new Size(169, 27);
+            password_label.TabIndex = 55;
             // 
-            // address_label
+            // login_label
             // 
-            address_label.BackColor = Color.FromArgb(34, 36, 49);
-            address_label.BorderStyle = BorderStyle.None;
-            address_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            address_label.ForeColor = Color.FromArgb(78, 184, 206);
-            address_label.Location = new Point(330, 329);
-            address_label.MaxLength = 15;
-            address_label.Name = "address_label";
-            address_label.Size = new Size(169, 27);
-            address_label.TabIndex = 54;
+            login_label.BackColor = Color.FromArgb(34, 36, 49);
+            login_label.BorderStyle = BorderStyle.None;
+            login_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            login_label.ForeColor = Color.FromArgb(78, 184, 206);
+            login_label.Location = new Point(330, 329);
+            login_label.MaxLength = 15;
+            login_label.Name = "login_label";
+            login_label.Size = new Size(169, 27);
+            login_label.TabIndex = 54;
             // 
             // telephone_label
             // 
@@ -372,6 +375,7 @@
             Client_RegisterButton.TabStop = false;
             Client_RegisterButton.Text = "Зарегистрироваться";
             Client_RegisterButton.UseVisualStyleBackColor = false;
+            Client_RegisterButton.Click += Client_RegisterButton_Click;
             // 
             // label9
             // 
@@ -405,9 +409,9 @@
             label7.ForeColor = Color.FromArgb(78, 184, 206);
             label7.Location = new Point(85, 337);
             label7.Name = "label7";
-            label7.Size = new Size(67, 23);
+            label7.Size = new Size(61, 23);
             label7.TabIndex = 45;
-            label7.Text = "Адрес";
+            label7.Text = "Логин";
             // 
             // label6
             // 
@@ -478,6 +482,7 @@
             Name = "EmployeeRegistrationView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeRegistrationView";
+            FormClosed += EmployeeRegistrationView_FormClosed;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel11.ResumeLayout(false);
@@ -507,8 +512,8 @@
         private Label label;
         private Label authorization_label;
         private TextBox confirm_password_label;
-        private TextBox password_client_label;
-        private TextBox address_label;
+        private TextBox password_label;
+        private TextBox login_label;
         private TextBox telephone_label;
         private TextBox date_label;
         private TextBox patronymic_label;

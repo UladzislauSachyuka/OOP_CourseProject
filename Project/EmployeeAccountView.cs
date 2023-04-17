@@ -19,8 +19,12 @@ namespace Project
 
         private void ViewingClients_Button_Click(object sender, EventArgs e)
         {
-            ClientsList clients = new ClientsList();
-            clients.Show();
+
+        }
+
+        private void EmployeeAccountView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

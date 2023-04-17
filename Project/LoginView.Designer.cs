@@ -205,6 +205,7 @@
             Name = "LoginView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginView";
+            FormClosed += LoginView_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel5.ResumeLayout(false);

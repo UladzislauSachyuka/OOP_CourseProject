@@ -38,11 +38,23 @@ namespace Project
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            string login = loginBox.Text;
+            string password = passwordBox.Text;
+
             if (loginBox.TextLength < 4 || passwordBox.TextLength < 4)
             {
                 message_label.Text = "Логин и пароль должны содержать от 4 до 15 символов";
                 message_label.Visible = true;
                 return;
+            }
+
+            LoginViewModel loginViewModel = new LoginViewModel(login, password);
+
+            if (loginViewModel.IsLoggedIn() == "Employee")
+            {
+                Hide();
+                EmployeeAccountView employeeAccountView = new EmployeeAccountView();
+                employeeAccountView.Show();
             }
 
         }
@@ -79,6 +91,11 @@ namespace Project
             Hide();
             ClientRegistrationView client_registr_view = new ClientRegistrationView();
             client_registr_view.Show();
+        }
+
+        private void LoginView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

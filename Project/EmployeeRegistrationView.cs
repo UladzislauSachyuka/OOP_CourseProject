@@ -24,11 +24,19 @@ namespace Project
             loginView.Show();
         }
 
-        private void Employee_RegisterButton_Click(object sender, EventArgs e)
+        private void Client_RegisterButton_Click(object sender, EventArgs e)
         {
+            string surname = surname_label.Text;
+            string name = name_label.Text;
+            string patronymic = patronymic_label.Text;
+            string birth = date_label.Text;
+            string telephone = telephone_label.Text;
+            string login = login_label.Text;
+            string password = password_label.Text;
+
             if (surname_label.Text is "" || name_label.Text is "" || patronymic_label.Text is ""
-                || date_label.Text is "" || telephone_label.Text is "" || address_label.Text is ""
-                || password_client_label.Text is "" || confirm_password_label.Text is "")
+                || date_label.Text is "" || telephone_label.Text is "" || login_label.Text is ""
+                || password_label.Text is "" || confirm_password_label.Text is "")
             {
                 message_label.Text = "Все поля обязательны для заполнения";
                 message_label.Visible = true;
@@ -56,19 +64,44 @@ namespace Project
                 return;
             }
 
-            if (password_client_label.TextLength < 4)
+            if (password_label.TextLength < 4)
             {
                 message_label.Text = "Пароль должен содержать от 4 до 15 символов";
                 message_label.Visible = true;
                 return;
             }
 
-            if (password_client_label != confirm_password_label)
+            if (password_label.Text != confirm_password_label.Text)
             {
                 message_label.Text = "Пароли не совпадают";
                 message_label.Visible = true;
                 return;
             }
+
+            User user = new User();
+            user.Role = "Employee";
+
+            RegViewModel registration = new RegViewModel(surname, name, patronymic, birth, telephone, login, password, user);
+
+            if (registration.IsUserExists())
+            {
+                message_label.Text = "Такой логин уже существует";
+                message_label.Visible = true;
+                return;
+            }
+
+            if (registration.SignUp())
+            {
+                Hide();
+                LoginView loginView = new LoginView();
+                loginView.Show();
+                MessageBox.Show("Аккаунт успешно создан!");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка! Аккаунт не был создан!");
+            }
+
         }
 
         private void authorization_label_MouseHover(object sender, EventArgs e)
@@ -105,6 +138,11 @@ namespace Project
             {
                 e.Handled = true;
             }
+        }
+
+        private void EmployeeRegistrationView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
