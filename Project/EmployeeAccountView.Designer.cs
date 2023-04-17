@@ -94,7 +94,7 @@
             button4.Name = "button4";
             button4.Size = new Size(203, 69);
             button4.TabIndex = 12;
-            button4.Text = "Удалить тест";
+            button4.Text = "Просмотр заявок на кредит";
             button4.UseVisualStyleBackColor = false;
             // 
             // button2
@@ -126,7 +126,7 @@
             button3.Name = "button3";
             button3.Size = new Size(203, 69);
             button3.TabIndex = 11;
-            button3.Text = "Добавить тест";
+            button3.Text = "Добавить кредит";
             button3.UseVisualStyleBackColor = false;
             // 
             // clients_dataGridView
