@@ -34,26 +34,22 @@
             button4 = new Button();
             button2 = new Button();
             button3 = new Button();
-            listBox1 = new ListBox();
-            dataGridView1 = new DataGridView();
+            clients_dataGridView = new DataGridView();
             panel3 = new Panel();
-            panel4 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)clients_dataGridView).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(34, 36, 49);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(listBox1);
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(clients_dataGridView);
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(panel4);
             panel1.Location = new Point(-10, -4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(826, 561);
+            panel1.Size = new Size(1053, 561);
             panel1.TabIndex = 1;
             // 
             // panel2
@@ -133,31 +129,23 @@
             button3.Text = "Добавить тест";
             button3.UseVisualStyleBackColor = false;
             // 
-            // listBox1
+            // clients_dataGridView
             // 
-            listBox1.BackColor = Color.FromArgb(34, 36, 49);
-            listBox1.BorderStyle = BorderStyle.None;
-            listBox1.ForeColor = Color.FromArgb(78, 184, 206);
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Location = new Point(311, 380);
-            listBox1.Margin = new Padding(3, 4, 3, 4);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(125, 140);
-            listBox1.TabIndex = 13;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = Color.FromArgb(34, 36, 49);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = Color.White;
-            dataGridView1.Location = new Point(272, 81);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(498, 272);
-            dataGridView1.TabIndex = 9;
+            clients_dataGridView.AllowUserToAddRows = false;
+            clients_dataGridView.AllowUserToDeleteRows = false;
+            clients_dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            clients_dataGridView.BackgroundColor = Color.FromArgb(34, 36, 49);
+            clients_dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            clients_dataGridView.GridColor = Color.White;
+            clients_dataGridView.Location = new Point(272, 81);
+            clients_dataGridView.Margin = new Padding(3, 4, 3, 4);
+            clients_dataGridView.Name = "clients_dataGridView";
+            clients_dataGridView.ReadOnly = true;
+            clients_dataGridView.RowHeadersVisible = false;
+            clients_dataGridView.RowHeadersWidth = 51;
+            clients_dataGridView.RowTemplate.Height = 25;
+            clients_dataGridView.Size = new Size(759, 361);
+            clients_dataGridView.TabIndex = 9;
             // 
             // panel3
             // 
@@ -165,23 +153,14 @@
             panel3.Location = new Point(268, 76);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(505, 283);
+            panel3.Size = new Size(767, 372);
             panel3.TabIndex = 14;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(78, 184, 206);
-            panel4.Location = new Point(307, 376);
-            panel4.Margin = new Padding(3, 4, 3, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(131, 148);
-            panel4.TabIndex = 15;
             // 
             // EmployeeAccountView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(805, 543);
+            ClientSize = new Size(1036, 559);
             Controls.Add(panel1);
             Name = "EmployeeAccountView";
             StartPosition = FormStartPosition.CenterScreen;
@@ -189,7 +168,7 @@
             FormClosed += EmployeeAccountView_FormClosed;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clients_dataGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -201,9 +180,7 @@
         private Button button4;
         private Button button2;
         private Button button3;
-        private ListBox listBox1;
-        private DataGridView dataGridView1;
+        private DataGridView clients_dataGridView;
         private Panel panel3;
-        private Panel panel4;
     }
 }
