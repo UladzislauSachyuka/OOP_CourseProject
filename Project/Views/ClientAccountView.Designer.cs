@@ -29,31 +29,48 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            back_button = new Button();
             button5 = new Button();
             button1 = new Button();
-            ViewingClients_Button = new Button();
+            get_credit_button = new Button();
             button4 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button6 = new Button();
+            profile_button = new Button();
+            button = new Button();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(78, 184, 206);
-            panel2.Controls.Add(button6);
+            panel2.Controls.Add(back_button);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button1);
-            panel2.Controls.Add(ViewingClients_Button);
+            panel2.Controls.Add(get_credit_button);
             panel2.Controls.Add(button4);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(profile_button);
+            panel2.Controls.Add(button);
             panel2.Location = new Point(14, 25);
             panel2.Name = "panel2";
             panel2.Size = new Size(229, 567);
             panel2.TabIndex = 2;
             panel2.Paint += panel2_Paint;
+            // 
+            // back_button
+            // 
+            back_button.BackColor = Color.FromArgb(34, 36, 49);
+            back_button.Cursor = Cursors.Hand;
+            back_button.FlatAppearance.BorderSize = 0;
+            back_button.FlatStyle = FlatStyle.Flat;
+            back_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            back_button.ForeColor = Color.FromArgb(78, 184, 206);
+            back_button.Location = new Point(13, 488);
+            back_button.Margin = new Padding(3, 4, 3, 4);
+            back_button.Name = "back_button";
+            back_button.Size = new Size(203, 69);
+            back_button.TabIndex = 15;
+            back_button.Text = "Назад";
+            back_button.UseVisualStyleBackColor = false;
+            back_button.Click += back_button_Click;
             // 
             // button5
             // 
@@ -87,22 +104,22 @@
             button1.Text = "Кредитная история";
             button1.UseVisualStyleBackColor = false;
             // 
-            // ViewingClients_Button
+            // get_credit_button
             // 
-            ViewingClients_Button.BackColor = Color.FromArgb(34, 36, 49);
-            ViewingClients_Button.Cursor = Cursors.Hand;
-            ViewingClients_Button.FlatAppearance.BorderSize = 0;
-            ViewingClients_Button.FlatStyle = FlatStyle.Flat;
-            ViewingClients_Button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ViewingClients_Button.ForeColor = Color.FromArgb(78, 184, 206);
-            ViewingClients_Button.Location = new Point(13, 8);
-            ViewingClients_Button.Margin = new Padding(3, 4, 3, 4);
-            ViewingClients_Button.Name = "ViewingClients_Button";
-            ViewingClients_Button.Size = new Size(203, 69);
-            ViewingClients_Button.TabIndex = 8;
-            ViewingClients_Button.Text = "Получить кредит";
-            ViewingClients_Button.UseVisualStyleBackColor = false;
-            ViewingClients_Button.Click += ViewingClients_Button_Click;
+            get_credit_button.BackColor = Color.FromArgb(34, 36, 49);
+            get_credit_button.Cursor = Cursors.Hand;
+            get_credit_button.FlatAppearance.BorderSize = 0;
+            get_credit_button.FlatStyle = FlatStyle.Flat;
+            get_credit_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            get_credit_button.ForeColor = Color.FromArgb(78, 184, 206);
+            get_credit_button.Location = new Point(13, 8);
+            get_credit_button.Margin = new Padding(3, 4, 3, 4);
+            get_credit_button.Name = "get_credit_button";
+            get_credit_button.Size = new Size(203, 69);
+            get_credit_button.TabIndex = 8;
+            get_credit_button.Text = "Получить кредит";
+            get_credit_button.UseVisualStyleBackColor = false;
+            get_credit_button.Click += ViewingClients_Button_Click;
             // 
             // button4
             // 
@@ -120,53 +137,38 @@
             button4.Text = "Статус заявки";
             button4.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // profile_button
             // 
-            button2.BackColor = Color.FromArgb(34, 36, 49);
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button2.ForeColor = Color.FromArgb(78, 184, 206);
-            button2.Location = new Point(13, 408);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(203, 69);
-            button2.TabIndex = 10;
-            button2.Text = "Личные данные";
-            button2.UseVisualStyleBackColor = false;
+            profile_button.BackColor = Color.FromArgb(34, 36, 49);
+            profile_button.Cursor = Cursors.Hand;
+            profile_button.FlatAppearance.BorderSize = 0;
+            profile_button.FlatStyle = FlatStyle.Flat;
+            profile_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            profile_button.ForeColor = Color.FromArgb(78, 184, 206);
+            profile_button.Location = new Point(13, 408);
+            profile_button.Margin = new Padding(3, 4, 3, 4);
+            profile_button.Name = "profile_button";
+            profile_button.Size = new Size(203, 69);
+            profile_button.TabIndex = 10;
+            profile_button.Text = "Личные данные";
+            profile_button.UseVisualStyleBackColor = false;
+            profile_button.Click += profile_button_Click;
             // 
-            // button3
+            // button
             // 
-            button3.BackColor = Color.FromArgb(34, 36, 49);
-            button3.Cursor = Cursors.Hand;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button3.ForeColor = Color.FromArgb(78, 184, 206);
-            button3.Location = new Point(13, 88);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(203, 69);
-            button3.TabIndex = 11;
-            button3.Text = "Просмотр условий кредитования";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.FromArgb(34, 36, 49);
-            button6.Cursor = Cursors.Hand;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button6.ForeColor = Color.FromArgb(78, 184, 206);
-            button6.Location = new Point(13, 488);
-            button6.Margin = new Padding(3, 4, 3, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(203, 69);
-            button6.TabIndex = 15;
-            button6.Text = "Назад";
-            button6.UseVisualStyleBackColor = false;
+            button.BackColor = Color.FromArgb(34, 36, 49);
+            button.Cursor = Cursors.Hand;
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatStyle = FlatStyle.Flat;
+            button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            button.ForeColor = Color.FromArgb(78, 184, 206);
+            button.Location = new Point(13, 88);
+            button.Margin = new Padding(3, 4, 3, 4);
+            button.Name = "button";
+            button.Size = new Size(203, 69);
+            button.TabIndex = 11;
+            button.Text = "Просмотр условий кредитования";
+            button.UseVisualStyleBackColor = false;
             // 
             // ClientAccountView
             // 
@@ -176,7 +178,9 @@
             ClientSize = new Size(1036, 622);
             Controls.Add(panel2);
             Name = "ClientAccountView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ClientAccountView";
+            FormClosed += ClientAccountView_FormClosed;
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -184,12 +188,12 @@
         #endregion
 
         private Panel panel2;
-        private Button ViewingClients_Button;
+        private Button get_credit_button;
         private Button button4;
-        private Button button2;
-        private Button button3;
+        private Button profile_button;
+        private Button button;
         private Button button5;
         private Button button1;
-        private Button button6;
+        private Button back_button;
     }
 }

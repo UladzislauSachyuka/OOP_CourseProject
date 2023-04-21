@@ -32,8 +32,8 @@
             panel2 = new Panel();
             ViewingClients_Button = new Button();
             button4 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            back_button = new Button();
+            add_credit_button = new Button();
             clients_dataGridView = new DataGridView();
             panel3 = new Panel();
             panel1.SuspendLayout();
@@ -57,8 +57,8 @@
             panel2.BackColor = Color.FromArgb(78, 184, 206);
             panel2.Controls.Add(ViewingClients_Button);
             panel2.Controls.Add(button4);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(back_button);
+            panel2.Controls.Add(add_credit_button);
             panel2.Location = new Point(17, 79);
             panel2.Name = "panel2";
             panel2.Size = new Size(229, 363);
@@ -97,37 +97,38 @@
             button4.Text = "Просмотр заявок на кредит";
             button4.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // back_button
             // 
-            button2.BackColor = Color.FromArgb(34, 36, 49);
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button2.ForeColor = Color.FromArgb(78, 184, 206);
-            button2.Location = new Point(13, 271);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(203, 69);
-            button2.TabIndex = 10;
-            button2.Text = "Назад";
-            button2.UseVisualStyleBackColor = false;
+            back_button.BackColor = Color.FromArgb(34, 36, 49);
+            back_button.Cursor = Cursors.Hand;
+            back_button.FlatAppearance.BorderSize = 0;
+            back_button.FlatStyle = FlatStyle.Flat;
+            back_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            back_button.ForeColor = Color.FromArgb(78, 184, 206);
+            back_button.Location = new Point(13, 271);
+            back_button.Margin = new Padding(3, 4, 3, 4);
+            back_button.Name = "back_button";
+            back_button.Size = new Size(203, 69);
+            back_button.TabIndex = 10;
+            back_button.Text = "Назад";
+            back_button.UseVisualStyleBackColor = false;
+            back_button.Click += back_button_Click;
             // 
-            // button3
+            // add_credit_button
             // 
-            button3.BackColor = Color.FromArgb(34, 36, 49);
-            button3.Cursor = Cursors.Hand;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button3.ForeColor = Color.FromArgb(78, 184, 206);
-            button3.Location = new Point(13, 105);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(203, 69);
-            button3.TabIndex = 11;
-            button3.Text = "Добавить кредит";
-            button3.UseVisualStyleBackColor = false;
+            add_credit_button.BackColor = Color.FromArgb(34, 36, 49);
+            add_credit_button.Cursor = Cursors.Hand;
+            add_credit_button.FlatAppearance.BorderSize = 0;
+            add_credit_button.FlatStyle = FlatStyle.Flat;
+            add_credit_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            add_credit_button.ForeColor = Color.FromArgb(78, 184, 206);
+            add_credit_button.Location = new Point(13, 105);
+            add_credit_button.Margin = new Padding(3, 4, 3, 4);
+            add_credit_button.Name = "add_credit_button";
+            add_credit_button.Size = new Size(203, 69);
+            add_credit_button.TabIndex = 11;
+            add_credit_button.Text = "Добавить кредит";
+            add_credit_button.UseVisualStyleBackColor = false;
             // 
             // clients_dataGridView
             // 
@@ -178,8 +179,8 @@
         private Panel panel2;
         private Button ViewingClients_Button;
         private Button button4;
-        private Button button2;
-        private Button button3;
+        private Button back_button;
+        private Button add_credit_button;
         private DataGridView clients_dataGridView;
         private Panel panel3;
     }

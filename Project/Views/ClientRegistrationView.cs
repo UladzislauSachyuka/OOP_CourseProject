@@ -1,27 +1,26 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using Project.Models;
+using Project.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Project
 {
-    public partial class EmployeeRegistrationView : Form
+    public partial class ClientRegistrationView : Form
     {
-        public EmployeeRegistrationView()
+        public ClientRegistrationView()
         {
             InitializeComponent();
-        }
-
-        private void authorization_label_Click(object sender, EventArgs e)
-        {
-            Hide();
-            LoginView loginView = new LoginView();
-            loginView.Show();
         }
 
         private void Client_RegisterButton_Click(object sender, EventArgs e)
@@ -35,8 +34,7 @@ namespace Project
             string password = password_label.Text;
 
             if (surname_label.Text is "" || name_label.Text is "" || patronymic_label.Text is ""
-                || date_label.Text is "" || telephone_label.Text is "" || login_label.Text is ""
-                || password_label.Text is "" || confirm_password_label.Text is "")
+                || date_label.Text is "" || telephone_label.Text is "" || login_label.Text is "" || password_label.Text is "" || confirm_password_label.Text is "")
             {
                 message_label.Text = "Все поля обязательны для заполнения";
                 message_label.Visible = true;
@@ -49,10 +47,13 @@ namespace Project
                 return;
             }
 
+            Regex regex = new Regex(@"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9] | 1[0-2])\/((19|20)\d\d))$");
+            bool isValid = regex.IsMatch(date_label.Text.Trim());
             DateTime date;
-            if (!DateTime.TryParse(date_label.Text, out date) || date.Year > 2023 || date.Year < 1920)
+            isValid = DateTime.TryParseExact(date_label.Text, "dd.MM.yyyy", new CultureInfo("ru-RU"), DateTimeStyles.None, out date);
+            if (!isValid)
             {
-                message_label.Text = "Некорректная дата рождения";
+                message_label.Text = "Некорректная дата";
                 message_label.Visible = true;
                 return;
             }
@@ -60,6 +61,13 @@ namespace Project
             if (telephone_label.TextLength != 12)
             {
                 message_label.Text = "Телефон должен содеражать 12 цифр";
+                message_label.Visible = true;
+                return;
+            }
+
+            if (login_label.TextLength < 4)
+            {
+                message_label.Text = "Логин должен содержать от 4 до 15 символов";
                 message_label.Visible = true;
                 return;
             }
@@ -79,7 +87,8 @@ namespace Project
             }
 
             User user = new User();
-            user.Role = "Employee";
+
+            user.Role = "Client";
 
             RegViewModel registration = new RegViewModel(surname, name, patronymic, birth, telephone, login, password, user);
 
@@ -104,14 +113,11 @@ namespace Project
 
         }
 
-        private void authorization_label_MouseHover(object sender, EventArgs e)
+        private void authorization_label_Click(object sender, EventArgs e)
         {
-            authorization_label.ForeColor = Color.FromArgb(78, 144, 206);
-        }
-
-        private void authorization_label_MouseLeave(object sender, EventArgs e)
-        {
-            authorization_label.ForeColor = Color.FromArgb(78, 184, 206);
+            Hide();
+            LoginView loginView = new LoginView();
+            loginView.Show();
         }
 
         private void surname_label_TextChanged(object sender, EventArgs e)
@@ -132,6 +138,24 @@ namespace Project
             patronymic_label.Select(patronymic_label.Text.Length, 0);
         }
 
+        private void authorization_label_MouseHover(object sender, EventArgs e)
+        {
+            authorization_label.ForeColor = Color.FromArgb(78, 144, 206);
+        }
+
+        private void authorization_label_MouseLeave(object sender, EventArgs e)
+        {
+            authorization_label.ForeColor = Color.FromArgb(78, 184, 206);
+        }
+
+        private void passport_label_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void telephone_label_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -140,7 +164,7 @@ namespace Project
             }
         }
 
-        private void EmployeeRegistrationView_FormClosed(object sender, FormClosedEventArgs e)
+        private void ClientRegistrationView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }

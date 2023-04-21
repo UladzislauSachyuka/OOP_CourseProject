@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project
+namespace Project.Models
 {
     public class User
     {
+        public int Id { get; set; }
         public string Role { get; set; }
         public UserAuth UserAuth { get; set; }
     }

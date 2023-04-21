@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace Project
+namespace Project.ViewModels
 {
     public class LoginViewModel
     {
         public string login { get; set; }
         public string password { get; set; }
-        public User user { get; set; }
+        public static User user { get; set; }
 
-        public LoginViewModel(string login, string password)
+        public LoginViewModel(string login, string password, User user)
         {
             this.login = login;
             this.password = password;
-            //this.user = user;
+            LoginViewModel.user = user;
         }
 
         public string IsLoggedIn()
@@ -38,10 +39,11 @@ namespace Project
             if (table.Rows.Count == 0)
                 return "Null";
             else if (table.Rows[0].ItemArray.Contains("Employee"))
-                return "Employee";
+                user.Role = "Employee";
             else
-                return "Client";
-            
+                user.Role = "Client";
+
+            return user.Role;
         }
     }
 }

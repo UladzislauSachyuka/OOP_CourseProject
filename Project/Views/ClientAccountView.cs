@@ -25,5 +25,24 @@ namespace Project
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
         }
+
+        private void ClientAccountView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            Hide();
+            LoginView loginView = new LoginView();
+            loginView.Show();
+        }
+
+        private void profile_button_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ProfileView profileView = new ProfileView();
+            profileView.Show();
+        }
     }
 }

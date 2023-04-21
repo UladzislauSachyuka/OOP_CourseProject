@@ -1,18 +1,18 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
+using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace Project
+namespace Project.ViewModels
 {
-    public class RegViewModel
+    public class ProfileViewModel
     {
-        public string surname {  get; set; }
+        public string surname { get; set; }
         public string name { get; set; }
         public string patronymic { get; set; }
         public string birthdate { get; set; }
@@ -21,7 +21,7 @@ namespace Project
         public string password { get; set; }
         public User user { get; set; }
 
-        public RegViewModel(string sur, string name, string patronymic, string birth, string tel, string log, string pass, User user)
+        public ProfileViewModel(string sur, string name, string patronymic, string birth, string tel, string log, string pass) 
         {
             surname = sur;
             this.name = name;
@@ -30,7 +30,7 @@ namespace Project
             telephone = tel;
             login = log;
             password = pass;
-            this.user = user;
+            user = LoginViewModel.user;
         }
 
         public bool IsUserExists()
@@ -44,31 +44,40 @@ namespace Project
 
             adapter.SelectCommand = command;
             adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
-                return true;
-            else
+            
+            if (table.Rows.Count == 0)
                 return false;
+            else if (table.Rows.Count == 1 && user.Id == Convert.ToInt32(table.Rows[0].ItemArray.GetValue(0)))
+                return false;
+            else
+                return true;
         }
 
-        public bool SignUp()
+        public bool SaveChanges()
         {
             bool IsSuccessfully = false;
             DataBase dataBase = new DataBase();
             string fio = surname + " " + name + " " + patronymic;
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`fio`, `birthdate`, `telephone`, `role`, `login`, `password`) VALUES (@fio, @birth, @tel, @role, @login, @password)", dataBase.getConnection());
-
-            command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = fio;
-            command.Parameters.Add("@birth", MySqlDbType.VarChar).Value = birthdate;
-            command.Parameters.Add("@tel", MySqlDbType.VarChar).Value = telephone;
-            command.Parameters.Add("@role", MySqlDbType.VarChar).Value = user.Role;
-            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
-            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
-
+            string query = "UPDATE users SET fio=@uF,birthdate=@uB,telephone =@uT,login =@uL,password =@uP WHERE id =@uI";
             dataBase.OpenConnection();
+            
+            MySqlCommand cmd = new MySqlCommand(query, dataBase.getConnection());
+            cmd.Parameters.AddWithValue("@uF", fio);
+            cmd.Parameters.AddWithValue("@uB", birthdate);
+            cmd.Parameters.AddWithValue("@uT", telephone);
+            cmd.Parameters.AddWithValue("@uL", login);
+            cmd.Parameters.AddWithValue("@uP", password);
+            cmd.Parameters.AddWithValue("@uI", user.Id);
 
-            if (command.ExecuteNonQuery() == 1) 
-                IsSuccessfully = true;
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 1)
+                   IsSuccessfully = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             dataBase.CloseConnection();
 

@@ -43,6 +43,11 @@ namespace Project
             Application.Exit();
         }
 
-
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            Hide();
+            LoginView loginView = new LoginView();
+            loginView.Show();
+        }
     }
 }
