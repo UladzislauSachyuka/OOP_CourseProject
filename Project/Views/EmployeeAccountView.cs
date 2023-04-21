@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
+using Project.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,13 @@ namespace Project
             Hide();
             LoginView loginView = new LoginView();
             loginView.Show();
+        }
+
+        private void add_credit_button_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AddCreditView addCreditView = new AddCreditView();
+            addCreditView.Show();
         }
     }
 }

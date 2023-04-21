@@ -129,6 +129,7 @@
             add_credit_button.TabIndex = 11;
             add_credit_button.Text = "Добавить кредит";
             add_credit_button.UseVisualStyleBackColor = false;
+            add_credit_button.Click += add_credit_button_Click;
             // 
             // clients_dataGridView
             // 

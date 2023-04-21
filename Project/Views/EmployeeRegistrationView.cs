@@ -88,8 +88,8 @@ namespace Project
 
             User user = new User();
             user.Role = "Employee";
-            user.UserAuth.Login = login;
-            user.UserAuth.Password = password;
+            //user.UserAuth.Login = login;
+            //user.UserAuth.Password = password;
 
             RegViewModel registration = new RegViewModel(surname, name, patronymic, birth, telephone, login, password, user);
 
