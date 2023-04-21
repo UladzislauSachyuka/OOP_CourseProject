@@ -17,17 +17,19 @@ namespace Project.ViewModels
         public string patronymic { get; set; }
         public string birthdate { get; set; }
         public string telephone { get; set; }
+        public string salary { get; set; }
         public string login { get; set; }
         public string password { get; set; }
         public User user { get; set; }
 
-        public ProfileViewModel(string sur, string name, string patronymic, string birth, string tel, string log, string pass) 
+        public ProfileViewModel(string sur, string name, string patronymic, string birth, string tel, string salar, string log, string pass) 
         {
             surname = sur;
             this.name = name;
             this.patronymic = patronymic;
             birthdate = birth;
             telephone = tel;
+            salary = salar;
             login = log;
             password = pass;
             user = LoginViewModel.user;
@@ -58,13 +60,14 @@ namespace Project.ViewModels
             bool IsSuccessfully = false;
             DataBase dataBase = new DataBase();
             string fio = surname + " " + name + " " + patronymic;
-            string query = "UPDATE users SET fio=@uF,birthdate=@uB,telephone =@uT,login =@uL,password =@uP WHERE id =@uI";
+            string query = "UPDATE users SET fio=@uF,birthdate=@uB,telephone =@uT,salary =@uS,login =@uL,password =@uP WHERE id =@uI";
             dataBase.OpenConnection();
             
             MySqlCommand cmd = new MySqlCommand(query, dataBase.getConnection());
             cmd.Parameters.AddWithValue("@uF", fio);
             cmd.Parameters.AddWithValue("@uB", birthdate);
             cmd.Parameters.AddWithValue("@uT", telephone);
+            cmd.Parameters.AddWithValue("@uS", salary);
             cmd.Parameters.AddWithValue("@uL", login);
             cmd.Parameters.AddWithValue("@uP", password);
             cmd.Parameters.AddWithValue("@uI", user.Id);

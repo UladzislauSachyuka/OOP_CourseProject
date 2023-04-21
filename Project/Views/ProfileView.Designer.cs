@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            panel1 = new Panel();
+            salary_label = new TextBox();
+            label1 = new Label();
             message_label = new Label();
             panel14 = new Panel();
             panel13 = new Panel();
@@ -67,6 +70,9 @@
             // 
             panel2.AutoSize = true;
             panel2.BackColor = Color.FromArgb(34, 36, 49);
+            panel2.Controls.Add(panel1);
+            panel2.Controls.Add(salary_label);
+            panel2.Controls.Add(label1);
             panel2.Controls.Add(message_label);
             panel2.Controls.Add(panel14);
             panel2.Controls.Add(panel13);
@@ -94,8 +100,42 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(0, -1);
             panel2.Name = "panel2";
-            panel2.Size = new Size(622, 656);
+            panel2.Size = new Size(622, 688);
             panel2.TabIndex = 23;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(330, 390);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(229, 1);
+            panel1.TabIndex = 66;
+            // 
+            // salary_label
+            // 
+            salary_label.BackColor = Color.FromArgb(34, 36, 49);
+            salary_label.BorderStyle = BorderStyle.None;
+            salary_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            salary_label.ForeColor = Color.FromArgb(78, 184, 206);
+            salary_label.Location = new Point(330, 355);
+            salary_label.MaxLength = 15;
+            salary_label.Name = "salary_label";
+            salary_label.Size = new Size(169, 27);
+            salary_label.TabIndex = 65;
+            salary_label.KeyPress += salary_label_KeyPress;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(78, 184, 206);
+            label1.Location = new Point(85, 367);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 23);
+            label1.TabIndex = 64;
+            label1.Text = "Зарплата";
             // 
             // message_label
             // 
@@ -113,7 +153,7 @@
             // panel14
             // 
             panel14.BackColor = Color.White;
-            panel14.Location = new Point(330, 405);
+            panel14.Location = new Point(330, 441);
             panel14.Margin = new Padding(3, 4, 3, 4);
             panel14.Name = "panel14";
             panel14.Size = new Size(229, 1);
@@ -122,7 +162,7 @@
             // panel13
             // 
             panel13.BackColor = Color.White;
-            panel13.Location = new Point(330, 456);
+            panel13.Location = new Point(330, 492);
             panel13.Margin = new Padding(3, 4, 3, 4);
             panel13.Name = "panel13";
             panel13.Size = new Size(229, 1);
@@ -131,7 +171,7 @@
             // panel10
             // 
             panel10.BackColor = Color.White;
-            panel10.Location = new Point(330, 303);
+            panel10.Location = new Point(330, 288);
             panel10.Margin = new Padding(3, 4, 3, 4);
             panel10.Name = "panel10";
             panel10.Size = new Size(229, 1);
@@ -141,7 +181,7 @@
             // 
             panel8.BackColor = Color.White;
             panel8.Controls.Add(panel9);
-            panel8.Location = new Point(330, 354);
+            panel8.Location = new Point(330, 339);
             panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
             panel8.Size = new Size(229, 1);
@@ -159,7 +199,7 @@
             // panel7
             // 
             panel7.BackColor = Color.White;
-            panel7.Location = new Point(330, 150);
+            panel7.Location = new Point(330, 135);
             panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
             panel7.Size = new Size(229, 1);
@@ -169,7 +209,7 @@
             // 
             panel4.BackColor = Color.White;
             panel4.Controls.Add(panel5);
-            panel4.Location = new Point(330, 252);
+            panel4.Location = new Point(330, 237);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
             panel4.Size = new Size(229, 1);
@@ -197,7 +237,7 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Location = new Point(330, 201);
+            panel3.Location = new Point(330, 186);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(229, 1);
@@ -223,7 +263,7 @@
             back_button.Cursor = Cursors.Hand;
             back_button.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             back_button.ForeColor = Color.FromArgb(78, 184, 206);
-            back_button.Location = new Point(261, 594);
+            back_button.Location = new Point(261, 631);
             back_button.Name = "back_button";
             back_button.Size = new Size(91, 32);
             back_button.TabIndex = 57;
@@ -236,7 +276,7 @@
             password_label.BorderStyle = BorderStyle.None;
             password_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             password_label.ForeColor = Color.FromArgb(78, 184, 206);
-            password_label.Location = new Point(330, 421);
+            password_label.Location = new Point(330, 457);
             password_label.MaxLength = 15;
             password_label.Name = "password_label";
             password_label.Size = new Size(169, 27);
@@ -248,7 +288,7 @@
             login_label.BorderStyle = BorderStyle.None;
             login_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             login_label.ForeColor = Color.FromArgb(78, 184, 206);
-            login_label.Location = new Point(330, 371);
+            login_label.Location = new Point(330, 406);
             login_label.MaxLength = 15;
             login_label.Name = "login_label";
             login_label.Size = new Size(169, 27);
@@ -261,11 +301,12 @@
             telephone_label.CharacterCasing = CharacterCasing.Upper;
             telephone_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             telephone_label.ForeColor = Color.FromArgb(78, 184, 206);
-            telephone_label.Location = new Point(330, 320);
+            telephone_label.Location = new Point(330, 304);
             telephone_label.MaxLength = 12;
             telephone_label.Name = "telephone_label";
             telephone_label.Size = new Size(169, 27);
             telephone_label.TabIndex = 53;
+            telephone_label.KeyPress += telephone_label_KeyPress;
             // 
             // date_label
             // 
@@ -273,7 +314,7 @@
             date_label.BorderStyle = BorderStyle.None;
             date_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             date_label.ForeColor = Color.FromArgb(78, 184, 206);
-            date_label.Location = new Point(330, 268);
+            date_label.Location = new Point(330, 253);
             date_label.MaxLength = 10;
             date_label.Name = "date_label";
             date_label.Size = new Size(169, 27);
@@ -285,11 +326,12 @@
             patronymic_label.BorderStyle = BorderStyle.None;
             patronymic_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             patronymic_label.ForeColor = Color.FromArgb(78, 184, 206);
-            patronymic_label.Location = new Point(330, 217);
+            patronymic_label.Location = new Point(330, 201);
             patronymic_label.MaxLength = 20;
             patronymic_label.Name = "patronymic_label";
             patronymic_label.Size = new Size(169, 27);
             patronymic_label.TabIndex = 51;
+            patronymic_label.TextChanged += patronymic_label_TextChanged;
             // 
             // name_label
             // 
@@ -297,11 +339,12 @@
             name_label.BorderStyle = BorderStyle.None;
             name_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             name_label.ForeColor = Color.FromArgb(78, 184, 206);
-            name_label.Location = new Point(330, 166);
+            name_label.Location = new Point(330, 151);
             name_label.MaxLength = 20;
             name_label.Name = "name_label";
             name_label.Size = new Size(169, 27);
             name_label.TabIndex = 50;
+            name_label.TextChanged += name_label_TextChanged;
             // 
             // surname_label
             // 
@@ -309,11 +352,12 @@
             surname_label.BorderStyle = BorderStyle.None;
             surname_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             surname_label.ForeColor = Color.FromArgb(78, 184, 206);
-            surname_label.Location = new Point(330, 115);
+            surname_label.Location = new Point(330, 101);
             surname_label.MaxLength = 20;
             surname_label.Name = "surname_label";
             surname_label.Size = new Size(169, 27);
             surname_label.TabIndex = 49;
+            surname_label.TextChanged += surname_label_TextChanged;
             // 
             // save_changes_button
             // 
@@ -323,7 +367,7 @@
             save_changes_button.FlatStyle = FlatStyle.Flat;
             save_changes_button.Font = new Font("Arial", 15.35F, FontStyle.Regular, GraphicsUnit.Point);
             save_changes_button.ForeColor = Color.FromArgb(34, 36, 49);
-            save_changes_button.Location = new Point(166, 516);
+            save_changes_button.Location = new Point(166, 553);
             save_changes_button.Name = "save_changes_button";
             save_changes_button.Size = new Size(290, 57);
             save_changes_button.TabIndex = 48;
@@ -338,7 +382,7 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(78, 184, 206);
-            label8.Location = new Point(85, 433);
+            label8.Location = new Point(85, 469);
             label8.Name = "label8";
             label8.Size = new Size(78, 23);
             label8.TabIndex = 46;
@@ -350,7 +394,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(78, 184, 206);
-            label7.Location = new Point(85, 382);
+            label7.Location = new Point(85, 418);
             label7.Name = "label7";
             label7.Size = new Size(61, 23);
             label7.TabIndex = 45;
@@ -362,7 +406,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(78, 184, 206);
-            label6.Location = new Point(85, 331);
+            label6.Location = new Point(85, 316);
             label6.Name = "label6";
             label6.Size = new Size(90, 23);
             label6.TabIndex = 44;
@@ -374,7 +418,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(78, 184, 206);
-            label5.Location = new Point(85, 280);
+            label5.Location = new Point(85, 265);
             label5.Name = "label5";
             label5.Size = new Size(150, 23);
             label5.TabIndex = 43;
@@ -386,7 +430,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(78, 184, 206);
-            label4.Location = new Point(85, 229);
+            label4.Location = new Point(85, 214);
             label4.Name = "label4";
             label4.Size = new Size(97, 23);
             label4.TabIndex = 42;
@@ -398,7 +442,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(78, 184, 206);
-            label3.Location = new Point(85, 178);
+            label3.Location = new Point(85, 163);
             label3.Name = "label3";
             label3.Size = new Size(48, 23);
             label3.TabIndex = 41;
@@ -410,7 +454,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(78, 184, 206);
-            label2.Location = new Point(85, 127);
+            label2.Location = new Point(85, 112);
             label2.Name = "label2";
             label2.Size = new Size(91, 23);
             label2.TabIndex = 40;
@@ -420,7 +464,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(623, 657);
+            ClientSize = new Size(623, 687);
             Controls.Add(panel2);
             Name = "ProfileView";
             StartPosition = FormStartPosition.CenterScreen;
@@ -466,5 +510,8 @@
         private Label label4;
         private Label label3;
         private Label label2;
+        private Panel panel1;
+        private TextBox salary_label;
+        private Label label1;
     }
 }

@@ -35,6 +35,7 @@ namespace Project
             patronymic_label.Text = fio.Split()[2];
             date_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(2));
             telephone_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(3));
+            salary_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(4));
             login_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(6));
             password_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(7));
         }
@@ -46,12 +47,13 @@ namespace Project
             string patronymic = patronymic_label.Text;
             string birth = date_label.Text;
             string telephone = telephone_label.Text;
+            string salary = salary_label.Text;
             string login = login_label.Text;
             string password = password_label.Text;
 
             if (surname_label.Text is "" || name_label.Text is "" || patronymic_label.Text is ""
-                || date_label.Text is "" || telephone_label.Text is "" || login_label.Text is ""
-                || password_label.Text is "")
+                || date_label.Text is "" || telephone_label.Text is "" || salary_label.Text is ""
+                || login_label.Text is "" || password_label.Text is "")
             {
                 message_label.Text = "Все поля обязательны для заполнения";
                 message_label.Visible = true;
@@ -89,7 +91,7 @@ namespace Project
                 return;
             }
 
-            ProfileViewModel profileViewModel = new ProfileViewModel(surname, name, patronymic, birth, telephone, login, password);
+            ProfileViewModel profileViewModel = new ProfileViewModel(surname, name, patronymic, birth, telephone, salary, login, password);
 
             if (profileViewModel.IsUserExists())
             {
@@ -114,6 +116,40 @@ namespace Project
         private void ProfileView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void surname_label_TextChanged(object sender, EventArgs e)
+        {
+            surname_label.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.surname_label.Text);
+            surname_label.Select(surname_label.Text.Length, 0);
+        }
+
+        private void name_label_TextChanged(object sender, EventArgs e)
+        {
+            name_label.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(name_label.Text);
+            name_label.Select(name_label.Text.Length, 0);
+        }
+
+        private void patronymic_label_TextChanged(object sender, EventArgs e)
+        {
+            patronymic_label.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(patronymic_label.Text);
+            patronymic_label.Select(patronymic_label.Text.Length, 0);
+        }
+
+        private void telephone_label_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void salary_label_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
