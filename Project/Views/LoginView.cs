@@ -61,6 +61,7 @@ namespace Project
 
             login = loginBox.Text;
             password = passwordBox.Text;
+
             user = new User();
             user.UserAuth = new UserAuth();
             user.UserAuth.Login = login;
@@ -70,8 +71,8 @@ namespace Project
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command_ = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL", dataBase.getConnection());
-            command_.Parameters.Add("@uL", MySqlDbType.VarChar).Value = login;
+            MySqlCommand command_ = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @login", dataBase.getConnection());
+            command_.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
 
             dataBase.OpenConnection();
 
@@ -86,6 +87,11 @@ namespace Project
             }
 
             user.Id = Convert.ToInt32(table.Rows[0].ItemArray.GetValue(0));
+            user.Name = Convert.ToString(table.Rows[0].ItemArray.GetValue(1));
+            user.Birthdate = Convert.ToString(table.Rows[0].ItemArray.GetValue(2));
+            user.Telephone = Convert.ToString(table.Rows[0].ItemArray.GetValue(3));
+            if (table.Rows[0].ItemArray.GetValue(4).ToString() != "")
+                user.Salary = Convert.ToInt32(table.Rows[0].ItemArray.GetValue(4));
 
             dataBase.CloseConnection();
 

@@ -53,7 +53,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(229, 567);
             panel2.TabIndex = 2;
-            panel2.Paint += panel2_Paint;
             // 
             // back_button
             // 
@@ -119,7 +118,7 @@
             get_credit_button.TabIndex = 8;
             get_credit_button.Text = "Получить кредит";
             get_credit_button.UseVisualStyleBackColor = false;
-            get_credit_button.Click += ViewingClients_Button_Click;
+            get_credit_button.Click += get_credit_button_Click;
             // 
             // button4
             // 

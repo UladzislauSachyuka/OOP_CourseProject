@@ -31,7 +31,7 @@
             panel1 = new Panel();
             panel2 = new Panel();
             ViewingClients_Button = new Button();
-            button4 = new Button();
+            viewing_credit_applications_button = new Button();
             back_button = new Button();
             add_credit_button = new Button();
             clients_dataGridView = new DataGridView();
@@ -56,7 +56,7 @@
             // 
             panel2.BackColor = Color.FromArgb(78, 184, 206);
             panel2.Controls.Add(ViewingClients_Button);
-            panel2.Controls.Add(button4);
+            panel2.Controls.Add(viewing_credit_applications_button);
             panel2.Controls.Add(back_button);
             panel2.Controls.Add(add_credit_button);
             panel2.Location = new Point(17, 79);
@@ -81,21 +81,22 @@
             ViewingClients_Button.UseVisualStyleBackColor = false;
             ViewingClients_Button.Click += ViewingClients_Button_Click;
             // 
-            // button4
+            // viewing_credit_applications_button
             // 
-            button4.BackColor = Color.FromArgb(34, 36, 49);
-            button4.Cursor = Cursors.Hand;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button4.ForeColor = Color.FromArgb(78, 184, 206);
-            button4.Location = new Point(13, 188);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(203, 69);
-            button4.TabIndex = 12;
-            button4.Text = "Просмотр заявок на кредит";
-            button4.UseVisualStyleBackColor = false;
+            viewing_credit_applications_button.BackColor = Color.FromArgb(34, 36, 49);
+            viewing_credit_applications_button.Cursor = Cursors.Hand;
+            viewing_credit_applications_button.FlatAppearance.BorderSize = 0;
+            viewing_credit_applications_button.FlatStyle = FlatStyle.Flat;
+            viewing_credit_applications_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            viewing_credit_applications_button.ForeColor = Color.FromArgb(78, 184, 206);
+            viewing_credit_applications_button.Location = new Point(13, 188);
+            viewing_credit_applications_button.Margin = new Padding(3, 4, 3, 4);
+            viewing_credit_applications_button.Name = "viewing_credit_applications_button";
+            viewing_credit_applications_button.Size = new Size(203, 69);
+            viewing_credit_applications_button.TabIndex = 12;
+            viewing_credit_applications_button.Text = "Просмотр заявок на кредит";
+            viewing_credit_applications_button.UseVisualStyleBackColor = false;
+            viewing_credit_applications_button.Click += viewing_credit_applications_button_Click;
             // 
             // back_button
             // 
@@ -179,7 +180,7 @@
         private Panel panel1;
         private Panel panel2;
         private Button ViewingClients_Button;
-        private Button button4;
+        private Button viewing_credit_applications_button;
         private Button back_button;
         private Button add_credit_button;
         private DataGridView clients_dataGridView;

@@ -26,8 +26,8 @@ namespace Project
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `role` = @uR", dataBase.getConnection());
-            command.Parameters.Add("@uR", MySqlDbType.VarChar).Value = "client";
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `role` = @role", dataBase.getConnection());
+            command.Parameters.Add("@role", MySqlDbType.VarChar).Value = "client";
 
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -56,6 +56,11 @@ namespace Project
             Hide();
             AddCreditView addCreditView = new AddCreditView();
             addCreditView.Show();
+        }
+
+        private void viewing_credit_applications_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
