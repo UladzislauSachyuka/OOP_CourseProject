@@ -23,17 +23,17 @@ namespace Project.Views
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            string credit_type = credit_type_comboBox.Text;
-            double rate = Convert.ToDouble(credit_rate_label.Text);
-            int sum = Convert.ToInt32(sum_label.Text);
-            int period = Convert.ToInt32(period_label.Text);
-
             if (credit_type_comboBox.Text is "" || credit_rate_label.Text is ""
                 || sum_label.Text is "" || period_label.Text is "")
             {
                 MessageBox.Show("Все поля должны быть заполнены");
                 return;
             }
+
+            string credit_type = credit_type_comboBox.Text;
+            double rate = Convert.ToDouble(credit_rate_label.Text);
+            int sum = Convert.ToInt32(sum_label.Text);
+            int period = Convert.ToInt32(period_label.Text);
 
             Credit credit = new Credit();
 

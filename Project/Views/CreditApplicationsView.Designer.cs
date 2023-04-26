@@ -53,6 +53,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(985, 110);
             panel1.TabIndex = 5;
+            panel1.Paint += panel1_Paint;
             // 
             // refuse_button
             // 
@@ -78,7 +79,7 @@
             id_label.BorderStyle = BorderStyle.None;
             id_label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             id_label.ForeColor = Color.FromArgb(78, 184, 206);
-            id_label.Location = new Point(143, 49);
+            id_label.Location = new Point(143, 54);
             id_label.MaxLength = 3;
             id_label.Name = "id_label";
             id_label.Size = new Size(45, 27);
@@ -124,7 +125,7 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
-            panel4.Location = new Point(143, 81);
+            panel4.Location = new Point(143, 86);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
             panel4.Size = new Size(45, 1);
