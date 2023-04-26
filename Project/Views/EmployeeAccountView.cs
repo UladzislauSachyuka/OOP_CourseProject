@@ -60,7 +60,9 @@ namespace Project
 
         private void viewing_credit_applications_button_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            CreditApplicationsView creditApplicationsView = new CreditApplicationsView();
+            creditApplicationsView.Show();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
+using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,14 +18,16 @@ namespace Project.ViewModels
         public double rate { get; set; }
         public int sum { get; set; }
         public int period { get; set; }
+        public Credit Credit { get; set; }
 
-        public GetCreditViewModel(string fio, string credit_name, double rate, int sum, int period) 
+        public GetCreditViewModel(string fio, string credit_name, double rate, int sum, int period, Credit credit) 
         {
             this.fio = fio;
             this.credit_name = credit_name;
             this.rate = rate;
             this.sum = sum;
             this.period = period;
+            Credit = credit;
         }
 
         public bool GetCredit()

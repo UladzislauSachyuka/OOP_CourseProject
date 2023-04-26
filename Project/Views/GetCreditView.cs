@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
+using Project.Models;
 using Project.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,9 @@ namespace Project.Views
                 return;
             }
 
-            GetCreditViewModel getCreditViewModel = new GetCreditViewModel(LoginViewModel.user.Name, credit_type, rate, sum, period);
+            Credit credit = new Credit();
+
+            GetCreditViewModel getCreditViewModel = new GetCreditViewModel(LoginViewModel.user.Name, credit_type, rate, sum, period, credit);
 
             if (getCreditViewModel.GetCredit())
                 MessageBox.Show("Заявка на кредит отправлена");
