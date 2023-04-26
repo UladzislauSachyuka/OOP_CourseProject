@@ -31,7 +31,7 @@
             panel2 = new Panel();
             back_button = new Button();
             button5 = new Button();
-            button1 = new Button();
+            credit_history_button = new Button();
             get_credit_button = new Button();
             application_status_button = new Button();
             profile_button = new Button();
@@ -43,7 +43,7 @@
             panel2.BackColor = Color.FromArgb(78, 184, 206);
             panel2.Controls.Add(back_button);
             panel2.Controls.Add(button5);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(credit_history_button);
             panel2.Controls.Add(get_credit_button);
             panel2.Controls.Add(application_status_button);
             panel2.Controls.Add(profile_button);
@@ -85,21 +85,22 @@
             button5.Text = "Погашение кредита";
             button5.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // credit_history_button
             // 
-            button1.BackColor = Color.FromArgb(34, 36, 49);
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button1.ForeColor = Color.FromArgb(78, 184, 206);
-            button1.Location = new Point(13, 269);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(203, 69);
-            button1.TabIndex = 13;
-            button1.Text = "Кредитная история";
-            button1.UseVisualStyleBackColor = false;
+            credit_history_button.BackColor = Color.FromArgb(34, 36, 49);
+            credit_history_button.Cursor = Cursors.Hand;
+            credit_history_button.FlatAppearance.BorderSize = 0;
+            credit_history_button.FlatStyle = FlatStyle.Flat;
+            credit_history_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            credit_history_button.ForeColor = Color.FromArgb(78, 184, 206);
+            credit_history_button.Location = new Point(13, 269);
+            credit_history_button.Margin = new Padding(3, 4, 3, 4);
+            credit_history_button.Name = "credit_history_button";
+            credit_history_button.Size = new Size(203, 69);
+            credit_history_button.TabIndex = 13;
+            credit_history_button.Text = "Кредитная история";
+            credit_history_button.UseVisualStyleBackColor = false;
+            credit_history_button.Click += credit_history_button_Click;
             // 
             // get_credit_button
             // 
@@ -174,7 +175,7 @@
         private Button application_status_button;
         private Button profile_button;
         private Button button5;
-        private Button button1;
+        private Button credit_history_button;
         private Button back_button;
     }
 }

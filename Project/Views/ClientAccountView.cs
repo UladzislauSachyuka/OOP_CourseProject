@@ -98,5 +98,12 @@ namespace Project
             }
 
         }
+
+        private void credit_history_button_Click(object sender, EventArgs e)
+        {
+            Hide();
+            CreditHistoryView creditHistoryView = new CreditHistoryView();
+            creditHistoryView.Show();
+        }
     }
 }

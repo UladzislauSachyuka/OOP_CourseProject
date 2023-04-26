@@ -158,10 +158,5 @@ namespace Project.Views
             EmployeeAccountView employeeAccountView = new EmployeeAccountView();
             employeeAccountView.Show();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
