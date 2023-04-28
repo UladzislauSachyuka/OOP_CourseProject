@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
 using Project.Models;
 using Project.ViewModels;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Project.Views
 {
@@ -37,12 +39,31 @@ namespace Project.Views
 
             Credit credit = new Credit();
 
+            DataBase dataBase = new DataBase();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `credit_repayments` (`fio`, `balance`, `rate`, `interest_payment`, `main_debt`) VALUES (@fio, @balance, @rate, @interest_payment, @main_debt)", dataBase.getConnection());
+
+            command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = LoginViewModel.user.Name;
+            command.Parameters.Add("@balance", MySqlDbType.Double).Value = sum;
+            command.Parameters.Add("@rate", MySqlDbType.Double).Value = rate;
+            command.Parameters.Add("@interest_payment", MySqlDbType.Double).Value = Math.Round((double)sum * rate / 100 / 12, 2);
+            command.Parameters.Add("@main_debt", MySqlDbType.Double).Value = Math.Round((double)sum / period, 2);
+
+            dataBase.OpenConnection();
+
+            command.ExecuteNonQuery();
+
+            dataBase.CloseConnection();
+
             GetCreditViewModel getCreditViewModel = new GetCreditViewModel(LoginViewModel.user.Name, credit_type, rate, sum, period, credit);
 
             if (getCreditViewModel.GetCredit())
                 MessageBox.Show("Заявка на кредит отправлена");
             else
                 MessageBox.Show("Ошибка");
+
+            Hide();
+            ClientAccountView clientAccountView = new ClientAccountView();
+            clientAccountView.Show();
         }
 
         private void back_button_Click(object sender, EventArgs e)

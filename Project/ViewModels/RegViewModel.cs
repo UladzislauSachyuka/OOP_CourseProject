@@ -84,7 +84,6 @@ namespace Project
             adapter.SelectCommand = command_;
             adapter.Fill(table);
 
-            //user.Id = (int)(UInt32)table.Rows[0].ItemArray.GetValue(0);
             user.Id = Convert.ToInt32(table.Rows[0].ItemArray.GetValue(0));
 
             dataBase.CloseConnection();

@@ -123,6 +123,7 @@
             salary_label.Name = "salary_label";
             salary_label.Size = new Size(169, 27);
             salary_label.TabIndex = 65;
+            salary_label.TabStop = false;
             salary_label.KeyPress += salary_label_KeyPress;
             // 
             // label1
@@ -281,6 +282,7 @@
             password_label.Name = "password_label";
             password_label.Size = new Size(169, 27);
             password_label.TabIndex = 55;
+            password_label.TabStop = false;
             // 
             // login_label
             // 
@@ -293,6 +295,7 @@
             login_label.Name = "login_label";
             login_label.Size = new Size(169, 27);
             login_label.TabIndex = 54;
+            login_label.TabStop = false;
             // 
             // telephone_label
             // 
@@ -306,6 +309,7 @@
             telephone_label.Name = "telephone_label";
             telephone_label.Size = new Size(169, 27);
             telephone_label.TabIndex = 53;
+            telephone_label.TabStop = false;
             telephone_label.KeyPress += telephone_label_KeyPress;
             // 
             // date_label
@@ -319,6 +323,7 @@
             date_label.Name = "date_label";
             date_label.Size = new Size(169, 27);
             date_label.TabIndex = 52;
+            date_label.TabStop = false;
             // 
             // patronymic_label
             // 
@@ -331,6 +336,7 @@
             patronymic_label.Name = "patronymic_label";
             patronymic_label.Size = new Size(169, 27);
             patronymic_label.TabIndex = 51;
+            patronymic_label.TabStop = false;
             patronymic_label.TextChanged += patronymic_label_TextChanged;
             // 
             // name_label
@@ -344,6 +350,7 @@
             name_label.Name = "name_label";
             name_label.Size = new Size(169, 27);
             name_label.TabIndex = 50;
+            name_label.TabStop = false;
             name_label.TextChanged += name_label_TextChanged;
             // 
             // surname_label
@@ -357,6 +364,7 @@
             surname_label.Name = "surname_label";
             surname_label.Size = new Size(169, 27);
             surname_label.TabIndex = 49;
+            surname_label.TabStop = false;
             surname_label.TextChanged += surname_label_TextChanged;
             // 
             // save_changes_button
@@ -470,6 +478,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ProfileView";
             FormClosed += ProfileView_FormClosed;
+            Load += ProfileView_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel8.ResumeLayout(false);

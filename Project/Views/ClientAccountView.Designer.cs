@@ -30,7 +30,7 @@
         {
             panel2 = new Panel();
             back_button = new Button();
-            button5 = new Button();
+            credit_repayment_button = new Button();
             credit_history_button = new Button();
             get_credit_button = new Button();
             application_status_button = new Button();
@@ -42,7 +42,7 @@
             // 
             panel2.BackColor = Color.FromArgb(78, 184, 206);
             panel2.Controls.Add(back_button);
-            panel2.Controls.Add(button5);
+            panel2.Controls.Add(credit_repayment_button);
             panel2.Controls.Add(credit_history_button);
             panel2.Controls.Add(get_credit_button);
             panel2.Controls.Add(application_status_button);
@@ -69,21 +69,22 @@
             back_button.UseVisualStyleBackColor = false;
             back_button.Click += back_button_Click;
             // 
-            // button5
+            // credit_repayment_button
             // 
-            button5.BackColor = Color.FromArgb(34, 36, 49);
-            button5.Cursor = Cursors.Hand;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button5.ForeColor = Color.FromArgb(78, 184, 206);
-            button5.Location = new Point(13, 182);
-            button5.Margin = new Padding(3, 4, 3, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(203, 69);
-            button5.TabIndex = 14;
-            button5.Text = "Погашение кредита";
-            button5.UseVisualStyleBackColor = false;
+            credit_repayment_button.BackColor = Color.FromArgb(34, 36, 49);
+            credit_repayment_button.Cursor = Cursors.Hand;
+            credit_repayment_button.FlatAppearance.BorderSize = 0;
+            credit_repayment_button.FlatStyle = FlatStyle.Flat;
+            credit_repayment_button.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            credit_repayment_button.ForeColor = Color.FromArgb(78, 184, 206);
+            credit_repayment_button.Location = new Point(13, 182);
+            credit_repayment_button.Margin = new Padding(3, 4, 3, 4);
+            credit_repayment_button.Name = "credit_repayment_button";
+            credit_repayment_button.Size = new Size(203, 69);
+            credit_repayment_button.TabIndex = 14;
+            credit_repayment_button.Text = "Погашение кредита";
+            credit_repayment_button.UseVisualStyleBackColor = false;
+            credit_repayment_button.Click += credit_repayment_button_Click;
             // 
             // credit_history_button
             // 
@@ -174,7 +175,7 @@
         private Button get_credit_button;
         private Button application_status_button;
         private Button profile_button;
-        private Button button5;
+        private Button credit_repayment_button;
         private Button credit_history_button;
         private Button back_button;
     }

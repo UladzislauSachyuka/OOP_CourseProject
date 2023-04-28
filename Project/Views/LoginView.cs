@@ -79,7 +79,7 @@ namespace Project
             adapter.SelectCommand = command_;
             adapter.Fill(table);
 
-            if(table.Rows.Count == 0) 
+            if (table.Rows.Count == 0)
             {
                 message_label.Text = "Неправильный логин или пароль";
                 message_label.Visible = true;

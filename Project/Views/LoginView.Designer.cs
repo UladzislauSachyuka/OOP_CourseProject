@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            employee_registr_label = new Label();
             message_label = new Label();
             client_registr_label = new Label();
             panel3 = new Panel();
             panel5 = new Panel();
             panel2 = new Panel();
-            employee_registr_label = new Label();
             LoginButton = new Button();
             passwordBox = new TextBox();
             loginBox = new TextBox();
@@ -46,26 +46,43 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(34, 36, 49);
+            panel1.Controls.Add(employee_registr_label);
             panel1.Controls.Add(message_label);
             panel1.Controls.Add(client_registr_label);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel5);
-            panel1.Controls.Add(employee_registr_label);
             panel1.Controls.Add(LoginButton);
             panel1.Controls.Add(passwordBox);
             panel1.Controls.Add(loginBox);
             panel1.Controls.Add(label);
-            panel1.Location = new Point(-6, -17);
+            panel1.Location = new Point(-1, -17);
             panel1.Name = "panel1";
-            panel1.Size = new Size(567, 563);
+            panel1.Size = new Size(562, 563);
             panel1.TabIndex = 2;
+            // 
+            // employee_registr_label
+            // 
+            employee_registr_label.AutoSize = true;
+            employee_registr_label.BackColor = Color.FromArgb(34, 36, 49);
+            employee_registr_label.Cursor = Cursors.Hand;
+            employee_registr_label.Font = new Font("Arial", 13.75F, FontStyle.Regular, GraphicsUnit.Point);
+            employee_registr_label.ForeColor = Color.FromArgb(78, 184, 206);
+            employee_registr_label.Location = new Point(142, 475);
+            employee_registr_label.Name = "employee_registr_label";
+            employee_registr_label.Size = new Size(271, 26);
+            employee_registr_label.TabIndex = 8;
+            employee_registr_label.Text = "Регистрация сотрудника";
+            employee_registr_label.TextAlign = ContentAlignment.MiddleCenter;
+            employee_registr_label.Click += employee_registr_label_Click;
+            employee_registr_label.MouseLeave += employee_registr_label_MouseLeave;
+            employee_registr_label.MouseHover += employee_registr_label_MouseHover;
             // 
             // message_label
             // 
             message_label.BackColor = Color.Transparent;
             message_label.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             message_label.ForeColor = Color.FromArgb(233, 6, 39);
-            message_label.Location = new Point(48, 113);
+            message_label.Location = new Point(38, 113);
             message_label.Name = "message_label";
             message_label.Size = new Size(478, 24);
             message_label.TabIndex = 17;
@@ -78,13 +95,13 @@
             client_registr_label.AutoSize = true;
             client_registr_label.BackColor = Color.FromArgb(34, 36, 49);
             client_registr_label.Cursor = Cursors.Hand;
-            client_registr_label.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            client_registr_label.Font = new Font("Arial", 13.75F, FontStyle.Regular, GraphicsUnit.Point);
             client_registr_label.ForeColor = Color.FromArgb(78, 184, 206);
-            client_registr_label.Location = new Point(345, 465);
+            client_registr_label.Location = new Point(159, 517);
             client_registr_label.Name = "client_registr_label";
-            client_registr_label.Size = new Size(171, 64);
+            client_registr_label.Size = new Size(237, 26);
             client_registr_label.TabIndex = 16;
-            client_registr_label.Text = "Регистрация\r\nклиента";
+            client_registr_label.Text = "Регистрация клиента";
             client_registr_label.TextAlign = ContentAlignment.MiddleCenter;
             client_registr_label.Click += client_registr_label_Click;
             client_registr_label.MouseLeave += client_registr_label_MouseLeave;
@@ -93,7 +110,7 @@
             // panel3
             // 
             panel3.BackColor = Color.WhiteSmoke;
-            panel3.Location = new Point(144, 228);
+            panel3.Location = new Point(134, 228);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(286, 1);
@@ -103,7 +120,7 @@
             // 
             panel5.BackColor = Color.FromArgb(78, 184, 206);
             panel5.Controls.Add(panel2);
-            panel5.Location = new Point(144, 306);
+            panel5.Location = new Point(134, 306);
             panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
             panel5.Size = new Size(286, 1);
@@ -118,23 +135,6 @@
             panel2.Size = new Size(286, 1);
             panel2.TabIndex = 14;
             // 
-            // employee_registr_label
-            // 
-            employee_registr_label.AutoSize = true;
-            employee_registr_label.BackColor = Color.FromArgb(34, 36, 49);
-            employee_registr_label.Cursor = Cursors.Hand;
-            employee_registr_label.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            employee_registr_label.ForeColor = Color.FromArgb(78, 184, 206);
-            employee_registr_label.Location = new Point(56, 465);
-            employee_registr_label.Name = "employee_registr_label";
-            employee_registr_label.Size = new Size(171, 64);
-            employee_registr_label.TabIndex = 8;
-            employee_registr_label.Text = "Регистрация\r\nсотрудника";
-            employee_registr_label.TextAlign = ContentAlignment.MiddleCenter;
-            employee_registr_label.Click += employee_registr_label_Click;
-            employee_registr_label.MouseLeave += employee_registr_label_MouseLeave;
-            employee_registr_label.MouseHover += employee_registr_label_MouseHover;
-            // 
             // LoginButton
             // 
             LoginButton.BackColor = Color.FromArgb(78, 184, 206);
@@ -145,9 +145,9 @@
             LoginButton.FlatStyle = FlatStyle.Flat;
             LoginButton.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             LoginButton.ForeColor = Color.FromArgb(34, 36, 49);
-            LoginButton.Location = new Point(208, 408);
+            LoginButton.Location = new Point(201, 408);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(158, 39);
+            LoginButton.Size = new Size(153, 39);
             LoginButton.TabIndex = 7;
             LoginButton.Text = "Войти";
             LoginButton.UseVisualStyleBackColor = false;
@@ -159,7 +159,7 @@
             passwordBox.BorderStyle = BorderStyle.None;
             passwordBox.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             passwordBox.ForeColor = Color.WhiteSmoke;
-            passwordBox.Location = new Point(144, 274);
+            passwordBox.Location = new Point(134, 274);
             passwordBox.MaxLength = 15;
             passwordBox.Name = "passwordBox";
             passwordBox.Size = new Size(287, 22);
@@ -174,7 +174,7 @@
             loginBox.BorderStyle = BorderStyle.None;
             loginBox.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             loginBox.ForeColor = Color.WhiteSmoke;
-            loginBox.Location = new Point(143, 194);
+            loginBox.Location = new Point(133, 194);
             loginBox.MaxLength = 15;
             loginBox.Name = "loginBox";
             loginBox.Size = new Size(288, 22);
@@ -189,7 +189,7 @@
             label.BackColor = Color.Transparent;
             label.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label.ForeColor = Color.FromArgb(78, 184, 206);
-            label.Location = new Point(200, 57);
+            label.Location = new Point(190, 57);
             label.Name = "label";
             label.Size = new Size(174, 32);
             label.TabIndex = 2;

@@ -15,5 +15,6 @@ namespace Project.Models
         public int Salary { get; set; }
         public string Role { get; set; }
         public UserAuth UserAuth { get; set; }
+        public CreditRepayment CreditRepayment { get; set; }
     }
 }

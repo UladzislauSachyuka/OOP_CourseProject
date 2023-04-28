@@ -19,25 +19,6 @@ namespace Project
         public ProfileView()
         {
             InitializeComponent();
-            DataBase dataBase = new DataBase();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `id` = @uL", dataBase.getConnection());
-            command.Parameters.Add("@uL", MySqlDbType.Int32).Value = LoginViewModel.user.Id;
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            string fio = Convert.ToString(table.Rows[0].ItemArray.GetValue(1));
-            surname_label.Text = fio.Split()[0];
-            name_label.Text = fio.Split()[1];
-            patronymic_label.Text = fio.Split()[2];
-            date_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(2));
-            telephone_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(3));
-            salary_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(4));
-            login_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(6));
-            password_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(7));
         }
 
         private void save_changes_button_Click(object sender, EventArgs e)
@@ -150,6 +131,30 @@ namespace Project
             {
                 e.Handled = true;
             }
+        }
+
+        private void ProfileView_Load(object sender, EventArgs e)
+        {
+            surname_label.DeselectAll();
+            DataBase dataBase = new DataBase();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `id` = @id", dataBase.getConnection());
+            command.Parameters.Add("@id", MySqlDbType.UInt32).Value = LoginViewModel.user.Id;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            string fio = Convert.ToString(table.Rows[0].ItemArray.GetValue(1));
+            surname_label.Text = fio.Split()[0];
+            name_label.Text = fio.Split()[1];
+            patronymic_label.Text = fio.Split()[2];
+            date_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(2));
+            telephone_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(3));
+            salary_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(4));
+            login_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(6));
+            password_label.Text = Convert.ToString(table.Rows[0].ItemArray.GetValue(7));
         }
     }
 }

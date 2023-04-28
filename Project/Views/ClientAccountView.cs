@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
+using Project.Models;
 using Project.ViewModels;
 using Project.Views;
 using System;
@@ -104,6 +105,43 @@ namespace Project
             Hide();
             CreditHistoryView creditHistoryView = new CreditHistoryView();
             creditHistoryView.Show();
+        }
+
+        private void credit_repayment_button_Click(object sender, EventArgs e)
+        {
+            DataBase dataBase = new DataBase();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `credit_repayments` WHERE `fio` = @fio", dataBase.getConnection());
+            command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = LoginViewModel.user.Name;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count == 0)
+            {
+                MessageBox.Show("У вас нет кредитов");
+                return;
+            }
+
+            if (Convert.ToDouble(table.Rows[table.Rows.Count - 1].ItemArray[2]) == 0)
+            {
+                MessageBox.Show("У вас нет непогашенных кредитов");
+                return;
+            }
+
+            CreditRepayment creditRepayment = new CreditRepayment();
+            LoginViewModel.user.CreditRepayment = creditRepayment;
+            LoginViewModel.user.CreditRepayment.Balance = Convert.ToDouble(table.Rows[table.Rows.Count - 1].ItemArray[2]);
+            LoginViewModel.user.CreditRepayment.Rate = Convert.ToDouble(table.Rows[table.Rows.Count - 1].ItemArray[3]);
+            LoginViewModel.user.CreditRepayment.InterestPayment = Convert.ToDouble(table.Rows[table.Rows.Count - 1].ItemArray[4]);
+            LoginViewModel.user.CreditRepayment.MainDebt = Convert.ToDouble(table.Rows[table.Rows.Count - 1].ItemArray[5]);
+            LoginViewModel.user.CreditRepayment.Sum = Math.Round(LoginViewModel.user.CreditRepayment.InterestPayment + LoginViewModel.user.CreditRepayment.MainDebt, 2);
+
+            Hide();
+            CreditRepaymentView creditRepaymentView = new CreditRepaymentView();
+            creditRepaymentView.Show();
         }
     }
 }

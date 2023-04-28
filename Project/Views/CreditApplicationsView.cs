@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
+using Project.Models;
+using Project.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
