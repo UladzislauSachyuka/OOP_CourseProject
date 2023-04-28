@@ -139,12 +139,54 @@ namespace Project.Views
                 return;
             }
 
-            string query = "UPDATE clients_credits SET status = @status WHERE id =@id";
+            string query = "UPDATE clients_credits SET status = @status WHERE id = @id";
             dataBase.OpenConnection();
 
             command = new MySqlCommand(query, dataBase.getConnection());
             command.Parameters.AddWithValue("@status", "отказано");
             command.Parameters.AddWithValue("@id", id);
+
+            try
+            {
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    DataBase dataBase1 = new DataBase();
+                    DataTable dataTable = new DataTable();
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
+
+                    MySqlCommand mySqlCommand = new MySqlCommand("SELECT * FROM `clients_credits` WHERE id = @id", dataBase1.getConnection());
+                    mySqlCommand.Parameters.AddWithValue("@id", id);
+
+                    mySqlDataAdapter.SelectCommand = mySqlCommand;
+                    mySqlDataAdapter.Fill(dataTable);
+
+                    string fio = dataTable.Rows[0].ItemArray[1].ToString();
+
+                    command = new MySqlCommand("SELECT * FROM `clients_credits` WHERE `status` = @status", dataBase.getConnection());
+                    command.Parameters.Add("@status", MySqlDbType.VarChar).Value = "ожидание";
+
+                    adapter.SelectCommand = command;
+                    table.Clear();
+                    adapter.Fill(table);
+
+                    DataTable temp = new DataTable();
+                    temp = table.DefaultView.ToTable(true, "id", "fio", "credit_type", "rate", "sum", "period");
+                    credit_applications_dataGridView.DataSource = temp;
+
+                    DataBase data = new DataBase();
+                    data.OpenConnection();
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM credit_repayments WHERE fio = @fio", data.getConnection());
+                    cmd.Parameters.Add("@fio", MySqlDbType.String).Value = fio;
+
+                    cmd.ExecuteNonQuery();
+
+                    data.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             dataBase.CloseConnection();
         }

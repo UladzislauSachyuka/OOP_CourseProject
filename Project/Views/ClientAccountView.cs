@@ -60,6 +60,22 @@ namespace Project
                 return;
             }
 
+            dataBase = new DataBase();
+            table = new DataTable();
+            adapter = new MySqlDataAdapter();
+
+            command = new MySqlCommand("SELECT * FROM `credit_repayments` WHERE `fio` = @fio", dataBase.getConnection());
+            command.Parameters.Add("@fio", MySqlDbType.String).Value = LoginViewModel.user.Name;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                MessageBox.Show("Нельзя брать несколько кредитов одновременно");
+                return;
+            }
+
             Hide();
             GetCreditView getCreditView = new GetCreditView();
             getCreditView.Show();
@@ -119,15 +135,24 @@ namespace Project
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
-            if (table.Rows.Count == 0)
+            if (table.Rows.Count == 0) 
             {
                 MessageBox.Show("У вас нет кредитов");
                 return;
             }
 
-            if (Convert.ToDouble(table.Rows[table.Rows.Count - 1].ItemArray[2]) == 0)
+            DataTable dataTable = new DataTable();
+
+            command = new MySqlCommand("SELECT * FROM `clients_credits` WHERE `fio` = @fio AND `status` = @status", dataBase.getConnection());
+            command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = LoginViewModel.user.Name;
+            command.Parameters.Add("@status", MySqlDbType.VarChar).Value = "ожидание";
+
+            adapter.SelectCommand = command;
+            adapter.Fill(dataTable);
+
+            if (dataTable.Rows.Count == 1)
             {
-                MessageBox.Show("У вас нет непогашенных кредитов");
+                MessageBox.Show("У вас нет кредитов");
                 return;
             }
 
